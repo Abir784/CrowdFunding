@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{env('APP_NAME')}} - Home</title>
+
   <link rel="icon" href="assets/img/logo-icon.png">
 
    <!-- CSS only -->
