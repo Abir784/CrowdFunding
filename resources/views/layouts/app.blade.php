@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{env('APP_NAME')}} - Home</title>
+
   <link rel="icon" href="assets/img/logo-icon.png">
 
    <!-- CSS only -->
@@ -88,7 +89,7 @@
             <div class="mx-4 boder"></div>
             <div class="login">
                 <i class="fa-solid fa-user"></i>
-                <a href="#">Login and Register</a>
+                <a href="{{route('login')}}">Login and Register</a>
               </div>
           </div>
         </div>
