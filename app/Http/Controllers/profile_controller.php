@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 
 class profile_controller extends Controller
 {
-    public function index(){
-        return view("form");
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+
+    public function index(){
+        return view("profile_update.form");
+    }
+    
     public function register(Request $register){
         $request->validate(
             [
