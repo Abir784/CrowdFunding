@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Auth;
+use App\Models\User;
 
 class profile_controller extends Controller
 {
@@ -15,17 +18,29 @@ class profile_controller extends Controller
     public function index(){
         return view("profile_update.form");
     }
-    
-    public function register(Request $register){
+
+    public function update(Request $request){
+       // print_r($request->all());
+
         $request->validate(
             [
                 'name' => 'required',
-                'email' => 'required|email',
-                'password' => 'required',
-                'address' => 'required',
-                'phone' => 'required'
+                'phone_number' => 'required|size:11',
+            ],
+            [
+                'name.required' => 'Name is required',
+                'phone_number.required' => 'Phone number is required',
+                'phone_number.size' => 'Phone number must be 11 digits',
+                //'phone_number.numeric' => 'Phone number must be numeric',
             ]
-        );
-        print_r($request->all());
+            );
+           User::where('id',Auth::user()->id)->update([
+            'name' => $request->name,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+            'updated_at' => Carbon::now(),
+           ]);//id id check kore
+           return back()->with('success','Profile Updated Successfully');
+          // return redirect()->route('profile_update')->with('success','Profile Updated Successfully');
     }
 }
