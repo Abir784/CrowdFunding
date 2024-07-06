@@ -42,6 +42,11 @@
         <div class="col-lg-8">
             <div class="card h-100">
                 <div class="card-body p-24">
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{session('success')}}</strong>
+                        </div>
+                    @endif
                     <ul class="nav border-gradient-tab nav-pills mb-20 d-inline-flex" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                           <button class="nav-link d-flex align-items-center px-24 active" id="pills-edit-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-edit-profile" type="button" role="tab" aria-controls="pills-edit-profile" aria-selected="true">
@@ -79,47 +84,37 @@
                                 </div>
                             </div>
                             <!-- Upload Image End -->
-                            <form action="#" method="POST" enctype="multipart/form-data">
-
+                            <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="mb-20">
                                             <label for="name" class="form-label fw-semibold text-primary-light text-sm mb-8">Full Name <span class="text-danger-600">*</span></label>
                                             <input type="text" class="form-control radius-8" id="name" name="name" value="{{Auth::user()->name}}" placeholder="Enter Full Name">
-                                        </div>
-                                    </div>
 
-                                    <div class="col-sm-6">
-                                        <div class="mb-20">
-                                            <label for="email" class="form-label fw-semibold text-primary-light text-sm mb-8">Email <span class="text-danger-600">*</span></label>
-                                            <input type="email" class="form-control radius-8" id="email" name="email" value="{{Auth::user()->email}}" placeholder="Enter email address">
                                         </div>
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="mb-20">
                                             <label for="number" class="form-label fw-semibold text-primary-light text-sm mb-8">Phone</label>
-                                            <input type="email" class="form-control radius-8" id="number" name="phone_number" value="{{Auth::user()->phone_number}}" placeholder="Enter phone number">
+                                            <input type="text" class="form-control radius-8" id="number" name="phone_number" value="{{Auth::user()->phone_number}}" placeholder="Enter phone number">
                                         </div>
+
+                                        @error('phone_number')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                         @enderror
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="mb-20">
-                                            <label for="depart" class="form-label fw-semibold text-primary-light text-sm mb-8">Department <span class="text-danger-600">*</span> </label>
-                                            <select class="form-control radius-8 form-select" id="depart">
-                                                <option>Enter Event Title </option>
-                                                <option>Enter Event Title One </option>
-                                                <option>Enter Event Title Two</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="mb-20">
-                                            <label for="desig" class="form-label fw-semibold text-primary-light text-sm mb-8">Designation <span class="text-danger-600">*</span> </label>
-                                            <select class="form-control radius-8 form-select" id="desig">
-                                                <option>Enter Designation Title </option>
-                                                <option>Enter Designation Title One </option>
-                                                <option>Enter Designation Title Two</option>
-                                            </select>
+                                            <label for="number" class="form-label fw-semibold text-primary-light text-sm mb-8">Address</label>
+                                            <input type="text" class="form-control radius-8" id="number" name="address" value="{{Auth::user()->address}}" placeholder="Enter Address">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -133,18 +128,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="mb-20">
-                                            <label for="desc" class="form-label fw-semibold text-primary-light text-sm mb-8">Description</label>
-                                            <textarea name="#0" class="form-control radius-8" id="desc" placeholder="Write description..."></textarea>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center gap-3">
-                                    <button type="button" class="border border-danger-600 bg-hover-danger-200 text-danger-600 text-md px-56 py-11 radius-8">
-                                        Cancel
-                                    </button>
-                                    <button type="button" class="btn btn-primary border border-primary-600 text-md px-56 py-12 radius-8" href={{route('sadia')}}>
+                                    <button type="submit" class="btn btn-primary border border-primary-600 text-md px-56 py-12 radius-8" >
                                         Save
                                     </button>
                                 </div>
