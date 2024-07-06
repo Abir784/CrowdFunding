@@ -65,42 +65,16 @@
             </li>
           </ul>
         </li>
-        <li class="sidebar-menu-group-title">Application</li>
-        <li>
-          <a href="email.html">
-            <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
-            <span>Email</span>
-          </a>
-        </li>
-        <li>
-          <a href="chat-message.html">
-            <iconify-icon icon="bi:chat-dots" class="menu-icon"></iconify-icon>
-            <span>Chat</span>
-          </a>
-        </li>
-        <li>
-          <a href="calendar-main.html">
-            <iconify-icon icon="solar:calendar-outline" class="menu-icon"></iconify-icon>
-            <span>Calendar</span>
-          </a>
-        </li>
+        <li class="sidebar-menu-group-title">Funtions</li>
+
         <li class="dropdown">
           <a href="javascript:void(0)">
             <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
-            <span>Invoice</span>
+            <span>Campaign</span>
           </a>
           <ul class="sidebar-submenu">
             <li>
-              <a href="invoice-list.html"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> List</a>
-            </li>
-            <li>
-              <a href="invoice-preview.html"><i class="ri-circle-fill circle-icon text-warning-main w-auto"></i> Preview</a>
-            </li>
-            <li>
-              <a href="invoice-add.html"><i class="ri-circle-fill circle-icon text-info-main w-auto"></i> Add new</a>
-            </li>
-            <li>
-              <a href="invoice-edit.html"><i class="ri-circle-fill circle-icon text-danger-main w-auto"></i> Edit</a>
+              <a href="{{ route('campaign.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Create a Campaign</a>
             </li>
           </ul>
         </li>

@@ -346,78 +346,33 @@
             <h2>Recent Causes</h2>
           </div>
           <div class="zoom-slider owl-carousel">
+
+            @foreach ($campaigns as $campaign )
             <div class="item recent-causes">
-              <img alt="recentimg" src="https://via.placeholder.com/588x440">
-              <i class="fa-solid fa-bolt"></i>
-              <div class="recent-causes-data">
-                <a href="cause-details.html">
-                  <h3>Providing access to safe water, sanitation</h3>
-                </a>
-                <p>Lorem ipsum dolor sit amet, consectetur a dipiscing elit Vivamus in magna.</p>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <img alt="{{$campaign->poster_image_2}}" src="{{asset('uploads/campaign/Small_poster/'.$campaign->poster_image_2)}}">
+                <i class="fa-solid fa-bolt"></i>
+                <div class="recent-causes-data">
+                  <a href="{{ route('campaign.details',$campaign->id)}}">
+                    <h3>{{$campaign->short_title}}</h3>
+                  </a>
+                  <p>{{substr($campaign->description, 0, 80)}}.....</p>
+                  <div class="progress">
+                    @php
+                    $progress=($campaign->goal_raised/$campaign->goal)*100;
+                    @endphp
+                    <div class="progress-bar" role="progressbar" style="width:{{$progress}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="goal">
+                    <span>Goal: ${{$campaign->goal}}</span>
+                    <span>Raised: ${{$campaign->goal_raised}}</span>
+                  </div>
+                  <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
                 </div>
-                <div class="goal">
-                  <span>Goal: $190000</span>
-                  <span>Raised: $80000</span>
-                </div>
-                <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
               </div>
-            </div>
-            <div class="item recent-causes">
-              <img alt="recentimg" src="https://via.placeholder.com/588x440">
-              <i class="fa-solid fa-bolt"></i>
-              <div class="recent-causes-data">
-                <a href="cause-details.html">
-                  <h3>Providing access to safe water, sanitation</h3>
-                </a>
-                <p>Lorem ipsum dolor sit amet, consectetur a dipiscing elit Vivamus in magna.</p>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="goal">
-                  <span>Goal: $190000</span>
-                  <span>Raised: $80000</span>
-                </div>
-                <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
-              </div>
-            </div>
-            <div class="item recent-causes">
-              <img alt="recentimg" src="https://via.placeholder.com/588x440">
-              <i class="fa-solid fa-bolt"></i>
-              <div class="recent-causes-data">
-                <a href="cause-details.html">
-                  <h3>Providing access to safe water, sanitation</h3>
-                </a>
-                <p>Lorem ipsum dolor sit amet, consectetur a dipiscing elit Vivamus in magna.</p>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="goal">
-                  <span>Goal: $190000</span>
-                  <span>Raised: $80000</span>
-                </div>
-                <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
-              </div>
-            </div>
-            <div class="item recent-causes">
-              <img alt="recentimg" src="https://via.placeholder.com/588x440">
-              <i class="fa-solid fa-bolt"></i>
-              <div class="recent-causes-data">
-                <a href="cause-details.html">
-                  <h3>Providing access to safe water, sanitation</h3>
-                </a>
-                <p>Lorem ipsum dolor sit amet, consectetur a dipiscing elit Vivamus in magna.</p>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="goal">
-                  <span>Goal: $190000</span>
-                  <span>Raised: $80000</span>
-                </div>
-                <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
-              </div>
-            </div>
+
+            @endforeach
+
+
           </div>
         </div>
       </section>

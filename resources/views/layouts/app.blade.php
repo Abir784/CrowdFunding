@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{env('APP_NAME')}} - Home</title>
 
-  <link rel="icon" href="assets/img/logo-icon.png">
+  <link rel="icon" href="{{asset("assets/img/logo-icon.png")}}">
 
    <!-- CSS only -->
-   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-   <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-   <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-   <link rel="stylesheet" href="assets/css/slick.css">
+   <link rel="stylesheet" type="text/css" href="{{asset("assets/css/bootstrap.min.css")}}">
+   <link rel="stylesheet" href="{{asset("assets/css/owl.carousel.min.css")}}">
+   <link rel="stylesheet" href="{{asset("assets/css/owl.theme.default.min.css")}}">
+   <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
    <!-- Font Awesome 6 -->
-   <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-   <link rel="stylesheet" href="assets/css/slick-theme.css">
-   <link rel="stylesheet" href="assets/css/odometer-theme.css">
+   <link rel="stylesheet" href="{{asset("assets/css/fontawesome.min.css")}}">
+   <link rel="stylesheet" href="{{asset("assets/css/slick-theme.css")}}">
+   <link rel="stylesheet" href="{{asset("assets/css/odometer-theme.css")}}">
    <!-- style -->
-   <link rel="stylesheet" href="assets/css/style.css">
-   <link rel="stylesheet" href="assets/css/style-dark.css">
+   <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
+   <link rel="stylesheet" href="{{asset("assets/css/style-dark.css")}}">
    <!-- responsive -->
-   <link rel="stylesheet" href="assets/css/responsive.css">
+   <link rel="stylesheet" href="{{asset("assets/css/responsive.css")}}">
    <!-- color -->
-   <link rel="stylesheet" href="assets/css/color.css">
+   <link rel="stylesheet" href="{{asset("assets/css/color.css")}}">
  </head>
 <body>
   <div class="preloader">
@@ -103,8 +103,8 @@
           <div class="col-lg-3">
             <div class="logo">
               <a href="index.html">
-                <img alt="logo" src="assets/img/logo.png" class="white-logo">
-                <img alt="logo" src="assets/img/logo-w.png" class="black-logo">
+                <img alt="logo" src="{{asset('assets/img/logo.png')}}" class="white-logo">
+                <img alt="logo" src="{{asset('assets/img/logo-w.png')}}" class="black-logo">
               </a>
             </div>
           </div>
@@ -176,7 +176,7 @@
 
                         <div class="p-img light-bg">
 
-                          <img src="assets/img/product-1.jpg" alt="Product Image">
+                          <img src="{{asset('assets/img/product-1.jpg')}}" alt="Product Image">
 
                         </div>
 
@@ -196,7 +196,7 @@
 
                         <div class="p-img light-bg">
 
-                          <img src="assets/img/product-2.jpg" alt="Product Image">
+                          <img src="{{asset('assets/img/product-2.jpg')}}" alt="Product Image">
 
                         </div>
 
@@ -247,8 +247,8 @@
     <div class="container">
       <div class="responsive-bar-slider">
         <a href="index.html">
-          <img alt="logo" src="assets/img/logo.png" class="white-logo">
-           <img alt="logo" src="assets/img/logo-w.png" class="black-logo">
+          <img alt="logo" src="{{asset('assets/img/logo.png')}}" class="white-logo">
+           <img alt="logo" src="{{asset('assets/img/logo-w.png')}}" class="black-logo">
         </a>
         <div class="bar-menu">
           <i class="fa-solid fa-bars"></i>
@@ -259,8 +259,8 @@
   <div class="mobile-nav hmburger-menu" id="mobile-nav" style="display:block;">
       <div class="res-log">
         <a href="index.html">
-          <img src="assets/img/logo.png" alt="Responsive Logo" class="white-logo">
-          <img alt="logo" src="assets/img/logo-w.png" class="black-logo">
+          <img src="{{asset("assets/img/logo.png")}}" alt="Responsive Logo" class="white-logo">
+          <img alt="logo" src="{{asset('assets/img/logo-w.png')}}" class="black-logo">
         </a>
       </div>
         <ul>
@@ -335,7 +335,7 @@
         <div class="row align-items-center">
           <div class="col-xl-4 col-md-6">
             <div class="footer-logo-one">
-              <a href="index.html"><img alt="logo" src="assets/img/logo-w.png"></a>
+              <a href="index.html"><img alt="logo" src="{{asset('assets/img/logo-w.png')}}"></a>
             </div>
           </div>
           <div class="col-xl-3 col-md-6">
@@ -456,13 +456,13 @@
   <a id="button"></a>
 <!-- Back to top button end -->
 <!-- jQuery -->
-<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/circle-progres.js"></script>
-<script src="assets/js/odometer.js"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/js/slick.min.js')}}"></script>
+<script src="{{asset('assets/js/circle-progres.js')}}"></script>
+<script src="{{asset('assets/js/odometer.js')}}"></script>
 <script>
   setTimeout(function(){
     odometer.innerHTML = jQuery('.odometer1').data("id");
@@ -470,5 +470,5 @@
     odometer3.innerHTML = jQuery('.odometer3').data("id");
   }, 2000);
 </script>
-<script src="assets/js/custom.js"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script>
 </body>
