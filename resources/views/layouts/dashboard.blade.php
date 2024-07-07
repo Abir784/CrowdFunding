@@ -79,6 +79,17 @@
             </li>
           </ul>
         </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">
+              <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+              <span>Article</span>
+            </a>
+            <ul class="sidebar-submenu">
+              <li>
+                <a href="{{ route('article.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> post a article</a>
+              </li>
+            </ul>
+          </li>
 
         <li class="sidebar-menu-group-title">Application</li>
 
