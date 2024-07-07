@@ -10,6 +10,6 @@ class Article extends Model
     use HasFactory;
     protected $guarded =['id'];
     public function posted_by(){
-        return $this->belongsTo(User::class, 'added_by', 'id');
+        return $this->belongsTo(User::class,'added_by');
     }
 }

@@ -25,12 +25,14 @@
             </figure>
             <div class="blog-details-two-style">
                 <div class="article">
-                  <h4>24<span>Mar, 2022</span></h4>
+
+
+                  <h4>{{$article->created_at->format('d')}}<span>{{$article->created_at->format('M,y')}}</span></h4>
                 </div>
                 <h2>{{$article->title}}</h2>
                 <div class="meta-info">
                   <ul>
-                    <li><img alt="img" src="https://via.placeholder.com/60x60"><p>Posted by Thomas Smith</p></li>
+                    <li><img alt="img" class="rounded-circle" style="height: 45px; width:45px " src="{{ asset('uploads/profile_image/'.$article->posted_by->profile_image)}}"><p>Posted by By {{$article->posted_by->name}}</p></li>
                     <li><i class="fa-solid fa-eye"></i><h6>50K</h6>
                     <li><i class="fa-solid fa-message"></i><h6>50K</h6>
                   </ul>
