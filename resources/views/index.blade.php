@@ -816,11 +816,11 @@
 
               @foreach ($articles as $article  )
               <div class="article">
-                <img alt="article-img" src="{{asset("uploads/article/Small_poster/".$article->poster_image_2)}}">
+                <img alt="article-img" style="height: 200px; width:200px" src="{{asset("uploads/article/Small_poster/".$article->poster_image_2)}}">
                 <div class="article-data">
-                  <h4>24<span>Mar, 2023</span></h4>
+                <h4>{{$article->created_at->format('d')}}<span>{{$article->created_at->format('M,y')}}</span></h4>
                   <div>
-                    <h5>By    <span class="px-3">-</span>    1 Comments</h5>
+                    <h5>By {{$article->posted_by->name}}  <span class="px-3">-</span>    1 Comments</h5>
                     <a href="{{route("article.details",$article->id)}}"><h3>{{$article->short_title}}</h3></a>
                     <h6>{{substr($article->description, 0, 80)}}.....</h6>
                   </div>
