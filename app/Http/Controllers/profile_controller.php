@@ -41,6 +41,10 @@ class profile_controller extends Controller
             'updated_at' => Carbon::now(),
            ]);//id id check kore
 
+           if(Auth::user()->profile_image != '0.jpg'){
+            unlink(public_path('uploads/profile_image/'.Auth::user()->profile_image));
+            }
+
            $id=Auth::user()->id;
            $extention=$request->profile_image->getClientOriginalExtension();
            $file_name=$id.".".$extention;
@@ -52,6 +56,7 @@ class profile_controller extends Controller
 
            return back()->with('success','Profile Updated Successfully');
           // return redirect()->route('profile_update')->with('success','Profile Updated Successfully');
+
 
     }
 
