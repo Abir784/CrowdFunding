@@ -40,7 +40,19 @@ class profile_controller extends Controller
             'address' => $request->address,
             'updated_at' => Carbon::now(),
            ]);//id id check kore
+
+           $id=Auth::user()->id;
+           $extention=$request->profile_image->getClientOriginalExtension();
+           $file_name=$id.".".$extention;
+
+           $request->profile_image->move(public_path('uploads/profile_image'),$file_name);
+           User::where('id',Auth::user()->id)->update([
+            'profile_image'=>$file_name,
+        ]);
+
            return back()->with('success','Profile Updated Successfully');
           // return redirect()->route('profile_update')->with('success','Profile Updated Successfully');
+
     }
+
 }

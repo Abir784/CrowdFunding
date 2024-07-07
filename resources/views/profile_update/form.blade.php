@@ -11,7 +11,7 @@
                 <img src="assets/images/user-grid/user-grid-bg1.png" alt="" class="w-100 object-fit-cover">
                 <div class="pb-24 ms-16 mb-24 me-16  mt--100">
                     <div class="text-center border border-top-0 border-start-0 border-end-0">
-                        <img src="assets/images/user-grid/user-grid-img14.png" alt="" class="border br-white border-width-2-px w-200-px h-200-px rounded-circle object-fit-cover">
+                        <img src="{{ asset('uploads/profile_image/'.Auth::user()->profile_image) }}" alt="" class="border br-white border-width-2-px w-200-px h-200-px rounded-circle object-fit-cover">
                         <h6 class="mb-0 mt-16">{{Auth::user()->name}}</h6>
                         <span class="text-secondary-light mb-16">{{Auth::user()->email}}</span>
                     </div>
@@ -67,25 +67,14 @@
 
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-edit-profile" role="tabpanel" aria-labelledby="pills-edit-profile-tab" tabindex="0">
-                            <h6 class="text-md text-primary-light mb-16">Profile Image</h6>
                             <!-- Upload Image Start -->
                             <div class="mb-24 mt-16">
-                                <div class="avatar-upload">
-                                        <div class="avatar-edit position-absolute bottom-0 end-0 me-24 mt-16 z-1 cursor-pointer">
-                                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" hidden>
-                                            <label for="imageUpload" class="w-32-px h-32-px d-flex justify-content-center align-items-center bg-primary-50 text-primary-600 border border-primary-600 bg-hover-primary-100 text-lg rounded-circle">
-                                                <iconify-icon icon="solar:camera-outline" class="icon"></iconify-icon>
-                                            </label>
-                                        </div>
-                                        <div class="avatar-preview">
-                                            <div id="imagePreview">
-                                        </div>
-                                    </div>
-                                </div>
+                                <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
+                                    @csrf
+
                             </div>
                             <!-- Upload Image End -->
-                            <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
-                                @csrf
+
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="mb-20">
@@ -94,7 +83,7 @@
 
                                         </div>
                                         @error('name')
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="alert alert-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
@@ -106,7 +95,7 @@
                                         </div>
 
                                         @error('phone_number')
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="alert alert-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                          @enderror
@@ -128,6 +117,13 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-sm-12">
+                                        <div class="mb-20">
+                                            <label for="number" class="form-label fw-semibold text-primary-light text-sm mb-8">Profile Image</label>
+                                              <input type="file" name="profile_image" class="form-control" id="">
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center gap-3">
                                     <button type="submit" class="btn btn-primary border border-primary-600 text-md px-56 py-12 radius-8" >
