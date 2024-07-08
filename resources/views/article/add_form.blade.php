@@ -34,6 +34,10 @@
                             <strong class="alert alert-danger">{{ $message }}</strong>
                         </span>
                         @enderror
+                        <div class="col-12">
+                            <label class="form-label">name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter quote">
+                          </div>
                     <div class="col-12">
                       <label class="form-label">Quote</label>
                       <input type="text" name="quote" class="form-control" placeholder="Enter quote">

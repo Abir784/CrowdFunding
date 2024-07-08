@@ -44,7 +44,7 @@ function campaign_form_post(Request $request){
     ]);
 
 
-    
+
     $id=Campaign::insertGetId([
         'title'=>$request->title,
         'description'=>$request->description,
@@ -88,6 +88,8 @@ function article_form_post(Request $request){
         'poster_image_2'=>'required|mimes:png,jpg|dimensions:max_width:588,max_height:440',
         'short_title'=>'required|max:250',
         'quote'=>'required |max:150',
+        'name'=>'required ',
+
     ]);
 
 

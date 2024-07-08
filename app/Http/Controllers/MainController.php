@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Campaign;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -33,4 +35,17 @@ class MainController extends Controller
             'article'=>$article,
         ]);
     }
+    function user_post(Request $request){
+
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'created_at'=>Carbon::now(),
+        ]);
+        return redirect(route('home'));
+    }
+   
+
 }

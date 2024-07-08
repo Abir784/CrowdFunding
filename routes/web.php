@@ -23,6 +23,9 @@ Route::get('/signup', function(){
 
 Route::get('/add_article',[DashboardController::class,'show_article_form'])->name('article.form');
 Route::post('/add_article_post',[DashboardController::class,'article_form_post'])->name('article.form.post');
+//
+Route::post('/user_post',[MainController::class,'user_post'])->name('user_post');
+
 
 
 
