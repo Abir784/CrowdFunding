@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     function index(){
-        $campaigns=Campaign::select('id','short_title','description','goal','goal_raised','poster_image_2')->get();
+        $campaigns=Campaign::select('id','short_title','description','goal','goal_raised','poster_image_2','type')->get();
         $articles=Article::select('id','short_title','description','poster_image_2','created_at','added_by')->get();
         return view('index',[
             'campaigns'=>$campaigns,

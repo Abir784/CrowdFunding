@@ -366,7 +366,14 @@
                     <span>Goal: ${{$campaign->goal}}</span>
                     <span>Raised: ${{$campaign->goal_raised}}</span>
                   </div>
+                  @if ($campaign->type == 1)
+                  <a href="donation-page.html" class="btn two mt-3"><span>Invest Now</span></a>
+
+                  @elseif ($campaign->type == 2)
                   <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
+
+                  @endif
+
                 </div>
               </div>
 
