@@ -33,27 +33,54 @@ function show_campaign_form(){
     return view('campaign.add_form');
 }
 function campaign_form_post(Request $request){
-    $request->validate([
-        'title'=>'required|max:500',
-        'description'=>'required',
-        'poster_image'=>'required|mimes:png,jpg|dimensions:max_width:500,max_height:593',
-        'poster_image_2'=>'required|mimes:png,jpg|dimensions:max_width:588,max_height:440',
-        'short_title'=>'required|max:250',
-        'type'=>'required',
-        'goal'=>'required',
-    ]);
 
 
-    
-    $id=Campaign::insertGetId([
-        'title'=>$request->title,
-        'description'=>$request->description,
-        'goal'=>$request->goal,
-        'short_title'=>$request->short_title,
-        'type'=>$request->type,
-        'added_by'=>Auth::user()->id,
-        'created_at'=>Carbon::now(),
-    ]);
+
+
+    if(empty($request->dilution)){
+        $request->validate([
+            'title'=>'required|max:500',
+            'description'=>'required',
+            'poster_image'=>'required|mimes:png,jpg|dimensions:max_width:500,max_height:593',
+            'poster_image_2'=>'required|mimes:png,jpg|dimensions:max_width:588,max_height:440',
+            'short_title'=>'required|max:250',
+            'type'=>'required',
+            'goal'=>'required',
+        ]);
+        $id=Campaign::insertGetId([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'goal'=>$request->goal,
+            'short_title'=>$request->short_title,
+            'type'=>$request->type,
+            'added_by'=>Auth::user()->id,
+            'created_at'=>Carbon::now(),
+        ]);
+    }else{
+        $request->validate([
+            'title'=>'required|max:500',
+            'description'=>'required',
+            'poster_image'=>'required|mimes:png,jpg|dimensions:max_width:500,max_height:593',
+            'poster_image_2'=>'required|mimes:png,jpg|dimensions:max_width:588,max_height:440',
+            'short_title'=>'required|max:250',
+            'type'=>'required',
+            'dilution'=>'required',
+            'goal'=>'required',
+        ]);
+        $id=Campaign::insertGetId([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'goal'=>$request->goal,
+            'short_title'=>$request->short_title,
+            'type'=>$request->type,
+            'dilution'=>$request->dilution,
+            'added_by'=>Auth::user()->id,
+            'created_at'=>Carbon::now(),
+        ]);
+
+    }
+
+
 
     $extention_1=$request->poster_image->getClientOriginalExtension();
     $file_name_1=$id.".".$extention_1;
@@ -101,6 +128,7 @@ function article_form_post(Request $request){
         'created_at'=>Carbon::now(),
     ]);
 
+
     $extention_1=$request->poster_image_1->getClientOriginalExtension();
     $file_name_1=$id.".".$extention_1;
 
@@ -120,4 +148,17 @@ function article_form_post(Request $request){
 
 
 }
+    public function ajax(Request $request){
+
+        if($request->type == 1){
+            $sent='<div class="col-12" id="type">
+            <label class="form-label">Ownership Dilution</label>
+            <input class="form-control" type="number" name="dilution">
+          </div>';
+           echo $sent;
+        }
+
+
+
+    }
 }
