@@ -3,7 +3,7 @@
 <div class="card">
     <div class="card-header">
         <b>
-            Create Campaign
+            Create article
         </b>
         <div class="card-body">
              @if (session('success'))
@@ -12,7 +12,7 @@
                </div>
 
              @endif
-            <form action="{{ route('campaign.form.post')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route("article.form.post")}}" method="POST" enctype="multipart/form-data">
 
             @csrf
                 <div class="row gy-3">
@@ -35,29 +35,15 @@
                         </span>
                         @enderror
                     <div class="col-12">
-                      <label class="form-label">Goal</label>
-                      <input type="number" name="goal" class="form-control" placeholder="Enter Goal">
+                      <label class="form-label">Quote</label>
+                      <input type="text" name="quote" class="form-control" placeholder="Enter quote">
                     </div>
-                    @error('goal')
+                    @error('quote')
                     <span class="alert" role="alert">
                         <strong class="alert alert-danger">{{ $message }}</strong>
                     </span>
                     @enderror
-                    <div class="col-12">
-                      <label class="form-label">Campaign Type</label>
-                      <div class="input-group">
-                        <select class="form-select w-120-px" name="type" id="type">
-                          <option value="">--Select Type--</option>
-                          <option value="1">Investment</option>
-                          <option value="2">Donation</option>
-                        </select>
-                      </div>
-                    </div>
-                    @error('type')
-                    <span class="alert" role="alert">
-                        <strong class="alert alert-danger">{{ $message }}</strong>
-                    </span>
-                    @enderror
+
                     <div class="col-12">
                       <label class="form-label">Description</label>
                       <textarea name="description" class="form-control" rows="4" cols="50" placeholder="Enter a description..."></textarea>
@@ -69,9 +55,9 @@
                     @enderror
                     <div class="col-12">
                       <label class="form-label">Large Poster Image(shown in the details page)</label>
-                      <input class="form-control" type="file" name="poster_image">
+                      <input class="form-control" type="file" name="poster_image_1">
                     </div>
-                    @error('poster_image')
+                    @error('poster_image_1')
                     <span class="alert" role="alert">
                         <strong class="alert alert-danger">{{ $message }}</strong>
                     </span>
@@ -86,11 +72,6 @@
                         <strong class="alert alert-danger">{{ $message }}</strong>
                     </span>
                     @enderror
-                    <div id="dilute" class="col-12">
-
-                    </div>
-
-
 
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary-600">Submit</button>
@@ -103,31 +84,4 @@
 </div>
 
 @endsection
-@section('footer_script')
 
-
-
-<script>
-    $('#type').change(function(){
-        var type = $(this).val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-     $.ajax({
-        type:'POST',
-        url:'/GetField',
-        data:{'type':type},
-        success:function(data){
-            $('#dilute').html(data);
-        }
-
-    });
-
-})
-
-</script>
-
-@endsection

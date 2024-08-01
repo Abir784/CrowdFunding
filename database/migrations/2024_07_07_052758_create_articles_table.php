@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('short_title');
-            $table->integer('goal');
-            $table->integer('goal_raised')->default(0);
-            $table->text('description');
-            $table->integer('type');
-            $table->integer('added_by');
-            $table->string('poster_image')->nullable();
             $table->string('poster_image_2')->nullable();
-            $table->integer('dilution')->nullable();
+            $table->string('poster_image_1')->nullable();
+            $table->integer('added_by');
+            $table->text('description');
+            $table->string('quote');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('articles');
     }
 };

@@ -366,7 +366,14 @@
                     <span>Goal: ${{$campaign->goal}}</span>
                     <span>Raised: ${{$campaign->goal_raised}}</span>
                   </div>
+                  @if ($campaign->type == 1)
+                  <a href="donation-page.html" class="btn two mt-3"><span>Invest Now</span></a>
+
+                  @elseif ($campaign->type == 2)
                   <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
+
+                  @endif
+
                 </div>
               </div>
 
@@ -813,32 +820,23 @@
           </div>
           <div class="row">
             <div class="offset-xl-1 col-xl-10">
+
+              @foreach ($articles as $article  )
               <div class="article">
-                <img alt="article-img" src="https://via.placeholder.com/520x370">
+                <img alt="article-img" style="height: 200px; width:200px" src="{{asset("uploads/article/Small_poster/".$article->poster_image_2)}}">
                 <div class="article-data">
-                  <h4>24<span>Mar, 2023</span></h4>
+                <h4>{{$article->created_at->format('d')}}<span>{{$article->created_at->format('M,y')}}</span></h4>
                   <div>
-                    <h5>By NicDark   <span class="px-3">-</span>    1 Comments</h5>
-                    <a href="blog-details-1.html"><h3>The perfect way to end your campaign</h3></a>
-                    <h6>Duis sed odio sit amet nibh vulputa te rsus a amet mau accumsan ip suy veliu
-                        am nec tel</h6>
+                    <h5>By {{$article->posted_by->name}}  <span class="px-3">-</span>    1 Comments</h5>
+                    <a href="{{route("article.details",$article->id)}}"><h3>{{$article->short_title}}</h3></a>
+                    <h6>{{substr($article->description, 0, 80)}}.....</h6>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="offset-xl-1 col-xl-10 mt-5">
-              <div class="article two">
-                <div class="article-data">
-                  <h4>24<span>Mar, 2023</span></h4>
-                  <div>
-                    <h5>By NicDark   <span class="px-3">-</span>    1 Comments</h5>
-                    <a href="blog-details-1.html"><h3>The perfect way to end your campaign</h3></a>
-                    <h6>Duis sed odio sit amet nibh vulputa te rsus a amet mau accumsan ip suy veliu
-                        am nec tel</h6>
-                  </div>
-                </div>
-                <img alt="article-img" src="https://via.placeholder.com/520x370">
-              </div>
+
+              @endforeach
+
               <div class="button-gap">
                 <a href="#" class="btn mt-5"><span>New All Posts</span></a>
               </div>

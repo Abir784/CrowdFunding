@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{env('APP_NAME')}} - Dashbaord</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="assets/img/logo-icon.png">
     <!-- remix icon font css  -->
     <link rel="stylesheet" href="assets/assets/css/remixicon.css">
@@ -79,6 +80,17 @@
             </li>
           </ul>
         </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">
+              <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+              <span>Article</span>
+            </a>
+            <ul class="sidebar-submenu">
+              <li>
+                <a href="{{ route('article.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> post a article</a>
+              </li>
+            </ul>
+          </li>
 
         <li class="sidebar-menu-group-title">Application</li>
 
@@ -729,8 +741,7 @@
     <script src="assets/assets/js/app.js"></script>
 
   <script src="assets/assets/js/homeOneChart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  @yield('footer_script')
 
   </body>
   </html>
