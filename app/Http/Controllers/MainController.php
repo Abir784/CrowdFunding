@@ -24,7 +24,6 @@ class MainController extends Controller
 
             ]);
 
-
     }
     function article_details($id){
         $article=Article::select('title','description','quote','poster_image_1','poster_image_2','created_at','added_by')->where('id',$id)->first();
@@ -32,5 +31,7 @@ class MainController extends Controller
         [
             'article'=>$article,
         ]);
+
     }
+    
 }
