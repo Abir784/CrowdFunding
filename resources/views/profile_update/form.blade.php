@@ -69,8 +69,9 @@
                         <div class="tab-pane fade show active" id="pills-edit-profile" role="tabpanel" aria-labelledby="pills-edit-profile-tab" tabindex="0">
                             <!-- Upload Image Start -->
                             <div class="mb-24 mt-16">
-                                <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
-                                    @csrf
+                                
+                            <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
+                            @csrf
 
                             </div>
                             <!-- Upload Image End -->
