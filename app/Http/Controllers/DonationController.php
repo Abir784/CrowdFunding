@@ -16,7 +16,7 @@ class DonationController extends Controller
     public function donation_form(){
         return view('donation.donation_form');
     }
-    public function campaign_form_post(Request $request){
+    public function donation_form_post(Request $request){
         $request->validate([
             'email' => 'required|email',
             'name' => 'required',

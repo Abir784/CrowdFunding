@@ -128,7 +128,7 @@
                     <li><a href="team-details.html">team details</a></li>
                     <li><a href="event-details.html">event details</a></li>
                     <li><a href="product-details.html">product-details</a></li>
-                    <li><a href="donation-page.html">donation page</a></li>
+                    <li><a href="#">donation page</a></li>
                     <li><a href="JavaScript:void(0)">photo-gallery</a>
                       <ul>
                           <li><a href="photo-gallery-1.html">photo gallery 1</a></li>
@@ -231,10 +231,10 @@
                 </div>
 
               </div>
-                <!--<a href="{{ route('campaign.details',$campaign->id)}}">
-                <a class="theme-btn" href="donation-page.html">Donate Now</a> -->
 
-                <a href="{{ route('donation.form',$donation->id)}}">Donate Now</a>
+                <a class="theme-btn" href="#">Donate Now</a>
+
+
 
             </div>
             </div>
@@ -280,9 +280,10 @@
               <li><a href="cause-details.html">cause details</a></li>
               <li><a href="team-details.html">team details</a></li>
                     <li><a href="event-details.html">event details</a></li>
-                    <li><a href="donation-page.html">donation page</a></li>
+                    <li><a href="#">donation page</a></li>
                     <li><a href="product-details.html">product details</a></li>
                     <li><a href="404-error.html">404 error</a></li>
+
             </ul>
           </li>
 
