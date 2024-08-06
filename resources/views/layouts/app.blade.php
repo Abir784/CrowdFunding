@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{env('APP_NAME')}} - Home</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="icon" href="{{asset("assets/img/logo-icon.png")}}">
 
@@ -130,7 +131,7 @@
                     <li><a href="team-details.html">team details</a></li>
                     <li><a href="event-details.html">event details</a></li>
                     <li><a href="product-details.html">product-details</a></li>
-                    <li><a href="#">donation page</a></li>
+                    <li><a href="{{route('donation.form')}}">donation page</a></li>
                     <li><a href="JavaScript:void(0)">photo-gallery</a>
                       <ul>
                           <li><a href="photo-gallery-1.html">photo gallery 1</a></li>
@@ -234,7 +235,7 @@
 
               </div>
 
-                <a class="theme-btn" href="#">Donate Now</a>
+                <a class="theme-btn" href="{{route('donation.form')}}">Donate Now</a>
 
             </div>
             </div>
@@ -280,7 +281,7 @@
               <li><a href="cause-details.html">cause details</a></li>
               <li><a href="team-details.html">team details</a></li>
                     <li><a href="event-details.html">event details</a></li>
-                    <li><a href="#">donation page</a></li>
+                    <li><a href="{{route('donation.form')}}">donation page</a></li>
                     <li><a href="product-details.html">product details</a></li>
                     <li><a href="404-error.html">404 error</a></li>
             </ul>
