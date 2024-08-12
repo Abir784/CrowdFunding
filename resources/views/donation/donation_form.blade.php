@@ -36,12 +36,15 @@
         <div class="enter-your-information-data">
           <h5>Enter your billing information</h5>
           <label>Email Address</label>
-          <input type="text" name="Email">
-          
+          <input type="text" name="Email" value="{{Auth::user()->email}}" placeholder="Enter Valid Email">
+       
           <label>Full Name</label>
-          <input type="text" name="name">
+          <input type="text" name="name" value="{{Auth::user()->name}}" placeholder="Enter Full Name">
+
           <label>City</label>
           <input type="text" name="city">
+          <label>Donation Amount</label>
+          <input type="number" name="amount">
           <label>State / Zidcode</label>
           <div class="d-flex">
             <select class="nice-select Advice">
@@ -53,7 +56,11 @@
             </select>
             <input type="text" name="zidcode" placeholder="Zipcode">
           </div>
-          <input type="submit" class="give-submit" name="give-purchase" value="Save">
+
+        <div class="pt-5">
+          <button type="submit" class="btn btn-primary-600">Save</button>
+        </div>
+
         </div>
         <div class="enter-your-information-data payment">
           <h5>Enter Your Payment Information</h5>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations. campaign_id, user_id, doation_amount, payment_status,
+     * Run the migrations. campaign_id, user_id, donation_amount, payment_status,
      */
     public function up(): void
     {
@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('campaign_id');
             $table->integer('donation_amount');
-            $table->string('payment_stats')->default(0);
+            $table->string('payment_status')->default(0);
             $table->timestamps();
         });
     }
