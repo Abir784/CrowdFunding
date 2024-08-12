@@ -370,7 +370,7 @@
                   <a href="donation-page.html" class="btn two mt-3"><span>Invest Now</span></a>
 
                   @elseif ($campaign->type == 2)
-                  <a href="{{ route('donation.form') }}" class="btn two mt-3"><span>Donate Now</span></a>
+                  <a href="{{url('/donation/'.$campaign->id)}}" class="btn two mt-3"><span>Donate Now</span></a>
 
                   @endif
 

@@ -13,8 +13,10 @@ class DonationController extends Controller
     {
         $this->middleware('auth');
     }
-    public function donation_form(){
-        return view('donation.donation_form');
+    public function donation_form($id){
+        return view('donation.donation_form',[
+            'campaign_id'=>$id,
+        ]);
     }
     public function donation_form_post(Request $request){
         $request->validate([

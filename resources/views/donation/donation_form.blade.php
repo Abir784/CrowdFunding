@@ -17,6 +17,12 @@
 </section>
 <section class="gap">
   <div class="container">
+    @if (session('success'))
+        <div class="alert alert-success">
+            <strong>{{session('success')}}</strong>
+        </div>
+
+    @endif
 
     <form action="{{route('donation.form.post')}}" method="post" enctype="multipart/form-data">
     @csrf
@@ -35,9 +41,10 @@
       <div class="enter-your-information pt-5">
         <div class="enter-your-information-data">
           <h5>Enter your billing information</h5>
+          <input type="hidden" name="campaign_id" value="{{$campaign_id}}">
           <label>Email Address</label>
           <input type="text" name="Email" value="{{Auth::user()->email}}" placeholder="Enter Valid Email">
-       
+
           <label>Full Name</label>
           <input type="text" name="name" value="{{Auth::user()->name}}" placeholder="Enter Full Name">
 
