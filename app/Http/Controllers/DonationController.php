@@ -18,11 +18,25 @@ class DonationController extends Controller
             'campaign_id'=>$id,
         ]);
     }
+
     public function donation_form_post(Request $request){
+        dd($request->all());
         $request->validate([
-            'email' => 'required|email',
-            'name' => 'required',
             'city' => 'required',
             ]);
+        Donation::create([
+            'user_id'=>$request->user_id,
+            'campaign_id'=>$request->campaign_id,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'city'=>$request->city,
+            'zipcode'=>$request->zipcode,
+            'donation_amount'=>$request->donation_amount,
+            'payment_status'=>0,
+            'created_at'=>Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+        return back()->with('success','Donation Added Successfully');
+
 }
 }

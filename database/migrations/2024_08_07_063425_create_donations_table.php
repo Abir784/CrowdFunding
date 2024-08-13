@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('campaign_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('city');
+            $table->string('zipcode');
             $table->integer('donation_amount');
             $table->string('payment_status')->default(0);
             $table->timestamps();
