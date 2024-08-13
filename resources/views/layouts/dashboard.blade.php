@@ -66,6 +66,18 @@
               <a href="index-5.html"><i class="ri-circle-fill circle-icon text-success-main w-auto"></i> Investment</a>
             </li>
           </ul>
+          <ul class="sidebar-menu" id="sidebar-menu">
+            <li class="dropdown">
+              <a href="javascript:void(0)">
+                <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                <span>Index</span>
+              </a>
+              <ul class="sidebar-submenu">
+                <li>
+                  <a href="{{ route('index')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Main Page</a>
+                </li>
+            </li>
+          </ul>
         </li>
         <li class="sidebar-menu-group-title">Funtions</li>
 
@@ -87,10 +99,21 @@
             </a>
             <ul class="sidebar-submenu">
               <li>
-                <a href="{{ route('article.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> post a article</a>
+                <a href="{{ route('article.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Post an Article</a>
               </li>
             </ul>
           </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">
+              <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+              <span>Donations</span>
+            </a>
+            <ul class="sidebar-submenu">
+              <li>
+                <a href="#"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Show My Donations</a>
+              </li>
+            </ul>
+        </li>
 
         <li class="sidebar-menu-group-title">Application</li>
 

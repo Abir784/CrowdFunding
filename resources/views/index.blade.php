@@ -10,7 +10,7 @@
                   <h1>Home is Life</h1>
                   <h4>We build strength, stability, and self
                           reliance through shelter. </h4>
-                          <a href="donation-page.html" class="btn"><span>Donate Now</span></a>
+                          <a href="#" class="btn"><span>Donate Now</span></a>
                 </div>
               </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="home-life">
                   <h1>Help for orphans</h1>
                   <h4>One Of The Biggest Risk Factors Involved In Family Separation.</h4>
-                          <a href="donation-page.html" class="btn"><span>Donate Now</span></a>
+                          <a href="#" class="btn"><span>Donate Now</span></a>
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
                 <div class="home-life">
                   <h1>sponsor an orphan</h1>
                   <h4>One Of The Biggest Risk Factors Involved In Family Separation.</h4>
-                          <a href="donation-page.html" class="btn"><span>Donate Now</span></a>
+                          <a href="#" class="btn"><span>Donate Now</span></a>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
                 <div class="home-life">
                   <h1>Educational Needs</h1>
                   <h4>The woman approaches the camera till we see a close up of her face</h4>
-                          <a href="donation-page.html" class="btn"><span>Donate Now</span></a>
+                          <a href="#" class="btn"><span>Donate Now</span></a>
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@
                 </i>
                 <h3>Donation</h3>
                 <p>Supported by community leaders, corporate sponsors, churches.</p>
-                <a href="donation-page.html">Donate Now</a>
+                <a href="#">Donate Now</a>
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
@@ -370,7 +370,7 @@
                   <a href="donation-page.html" class="btn two mt-3"><span>Invest Now</span></a>
 
                   @elseif ($campaign->type == 2)
-                  <a href="donation-page.html" class="btn two mt-3"><span>Donate Now</span></a>
+                  <a href="{{url('/donation/'.$campaign->id)}}" class="btn two mt-3"><span>Donate Now</span></a>
 
                   @endif
 

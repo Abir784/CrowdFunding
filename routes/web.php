@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::get('/',[MainController::class,'index'])->name('index');
 Route::get("/profile_update",[profile_controller::class, "index"])->name('sadia');
-Route::get("/donation",[DonationController::class,"donation_form"])->name('donation.form');
+Route::get("/donation/{id}",[DonationController::class,"donation_form"])->name('donation.form');
 Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
 Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 Route::get('/campaign_details/{id}',[MainController::class,'campaign_page'])->name('campaign.details');
