@@ -24,6 +24,13 @@
 
     @endif
 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            <strong>{{session('error')}}</strong>
+        </div>
+
+    @endif
+
     <form action="{{route('donation.form.post')}}" method="post" enctype="multipart/form-data">
     @csrf
           <h5>Now choose how much.</h5>
@@ -53,7 +60,7 @@
           <input type="text" name="city">
           <label>Donation Amount</label>
           <input type="number" name="donation_amount">
-          <label>State / Zidcode</label>
+          <label>State / Zipcode</label>
           <div class="d-flex">
             <select class="nice-select Advice">
               <option>State</option>
@@ -68,6 +75,8 @@
         <div class="pt-5">
           <button type="submit" class="btn btn-primary-600">Save</button>
         </div>
+    </form>
+    <form>
 
         </div>
         <div class="enter-your-information-data payment">
@@ -84,7 +93,7 @@
             </label>
           </div>
           <label>Credit Card Number</label>
-          <input type="number" name="Email">
+          <input type="number" name="credit">
           <label>Expiration Date</label>
           <input type="number" name="name">
           <label>Expiration Date</label>

@@ -98,14 +98,10 @@ function campaign_form_post(Request $request){
 
     return back()->with('success','Campaign Created Successfully');
 
-
-
 }
 function show_article_form(){
     return view ("article.add_form");
 }
-
-
 
 function article_form_post(Request $request){
     $request->validate([
@@ -116,8 +112,6 @@ function article_form_post(Request $request){
         'short_title'=>'required|max:250',
         'quote'=>'required |max:150',
     ]);
-
-
 
     $id=Article::insertGetId([
         'title'=>$request->title,
@@ -144,9 +138,6 @@ function article_form_post(Request $request){
     ]);
 
     return back()->with('success','Article Created Successfully');
-
-
-
 }
     public function ajax(Request $request){
 
@@ -157,8 +148,6 @@ function article_form_post(Request $request){
           </div>';
            echo $sent;
         }
-
-
-
+        
     }
 }
