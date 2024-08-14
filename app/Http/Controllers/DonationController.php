@@ -19,6 +19,9 @@ class DonationController extends Controller
             'campaign_id'=>$id,
         ]);
     }
+    public function donation_table(){
+        return view("donation.donation_table");
+    }
 
     public function donation_form_post(Request $request){
         $request->validate([

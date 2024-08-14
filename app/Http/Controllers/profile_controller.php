@@ -39,7 +39,7 @@ class profile_controller extends Controller
             'phone_number' => $request->phone_number,
             'address' => $request->address,
             'updated_at' => Carbon::now(),
-           ]);//id id check kore
+           ]);// id check kore
 
            if(Auth::user()->profile_image != '0.jpg'){
             unlink(public_path('uploads/profile_image/'.Auth::user()->profile_image));
