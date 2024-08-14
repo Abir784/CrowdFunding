@@ -27,9 +27,10 @@
             </tr>
           </thead>
 
-          {{--
+
           <tbody>
             <tr>
+              {{--
 
               <td>
                 <div class="form-check style-check d-flex align-items-center">
@@ -39,11 +40,12 @@
                   </label>
                 </div>
               </td>
+              --}}
 
               <td><a href="javascript:void(0)" class="text-primary-600">{{$campaign->title}}</a></td>
             </tr>
           </tbody>
-              
+            {{--
 
               <td>{{  }}</td>
               <td> <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Paid</span> </td>

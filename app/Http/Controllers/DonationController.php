@@ -31,7 +31,7 @@ class DonationController extends Controller
             'zipcode' => 'required',
             'donation_amount' => 'required|numeric',
             ]);
-        $campaign=Campaign::select('goal','goal_raised')->where('id',$request->campaign_id)->first();
+        $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
         if($campaign-> goal < ($request->donation_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{
