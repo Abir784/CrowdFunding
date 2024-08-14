@@ -371,6 +371,7 @@
 
                   @elseif ($campaign->type == 2)
                   <a href="{{url('/donation/'.$campaign->id)}}" class="btn two mt-3"><span>Donate Now</span></a>
+                
 
                   @endif
 
