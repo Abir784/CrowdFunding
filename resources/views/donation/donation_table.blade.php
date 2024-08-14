@@ -10,7 +10,7 @@
         <table class="table bordered-table mb-0" id="dataTable" data-page-length='20'>
           <thead>
             <tr>
-              {{--
+
               <th scope="col">
                 <div class="form-check style-check d-flex align-items-center">
                   <input class="form-check-input" type="checkbox">
@@ -19,7 +19,7 @@
                   </label>
                 </div>
               </th>
-              --}}
+
               <th scope="col">Campaign Title</th>
               <th scope="col">Donated Amount</th>
               <th scope="col">Payment Status</th>
@@ -27,9 +27,10 @@
             </tr>
           </thead>
 
+          {{--
           <tbody>
             <tr>
-              {{--
+
               <td>
                 <div class="form-check style-check d-flex align-items-center">
                   <input class="form-check-input" type="checkbox">
@@ -38,11 +39,11 @@
                   </label>
                 </div>
               </td>
-              --}}
+
               <td><a href="javascript:void(0)" class="text-primary-600">{{$campaign->title}}</a></td>
             </tr>
           </tbody>
-              {{--
+              
 
               <td>{{  }}</td>
               <td> <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Paid</span> </td>
