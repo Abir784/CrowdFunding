@@ -20,7 +20,10 @@ class DonationController extends Controller
         ]);
     }
     public function donation_table(){
-        return view("donation.donation_table");
+        $donations = Donation::where('user_id',Auth::id())->get();
+        return view("donation.donation_table",[
+            'donations'=>$donations,
+        ]);
     }
 
     public function donation_form_post(Request $request){
