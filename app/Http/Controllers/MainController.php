@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Campaign;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -17,7 +19,7 @@ class MainController extends Controller
         ]);
     }
     function campaign_page($id){
-        $campaign=Campaign::select('title','description','goal','goal_raised','poster_image')->where('id',$id)->first();
+        $campaign=Campaign::select('title','description','goal','goal_raised','poster_image','type','id')->where('id',$id)->first();
          return view('campaign.cause-details',
          [
             'campaign'=>$campaign,
@@ -33,5 +35,17 @@ class MainController extends Controller
         ]);
 
     }
-    
+    function campaign_table(){
+        $campaigns=Campaign::where('added_by',Auth::id())->get();
+        return view('campaign.campaign_table',[
+            'campaigns'=>$campaigns,
+        ]);
+    }
+    function campaigns_all(){
+        $campaigns=Campaign::all();
+        return view('campaign.all_campaign',[
+            'campaigns'=>$campaigns,
+        ]);
+    }
+
 }

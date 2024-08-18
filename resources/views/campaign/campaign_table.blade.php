@@ -7,7 +7,6 @@
         <table class="table bordered-table mb-0" id="dataTable" data-page-length='20'>
           <thead>
             <tr>
-
               <th scope="col">
                 <div class="form-check style-check d-flex align-items-center">
                   <label class="form-check-label">
@@ -17,25 +16,35 @@
               </th>
 
               <th scope="col">Campaign Title</th>
-              <th scope="col">Donated Amount</th>
-              <th scope="col">Payment Status</th>
-
+              <th scope="col">Goal Amount</th>
+              <th scope="col">Goal Raised</th>
+              <th scope="col">Campaign Type</th>
+              <th scope="col">Dilution(If Any)</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
 
 
           <tbody>
-            @foreach($donations as $SL=>$donation)
+            @foreach($campaigns as $SL=>$campaign)
             <tr>
               <td>{{  $SL+1}}</td>
-              <td>{{$donation->campaign->title}}</td>
-              <td>{{$donation->donation_amount}}</td>
-              @if($donation->payment_status==0)
-                <td><span class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">unpaid</span></td>
+              <td>{{$campaign->title}}</td>
+              <td>{{$campaign->goal}}</td>
+              <td>{{$campaign->goal_raised}}</td>
+              @if ($campaign->type ==1)
+              <td>Donation</td>
               @else
-                <td> <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">paid</span></td>
+              <td>Investment</td>
               @endif
+              <td>{{$campaign->dilution}}</td>
+              @if ($campaign->goal_raised == $campaign->goal)
+                 <td>Fundraise Complete</td>
 
+                 @else
+                 <td>Funraise Ongoing</td>
+
+              @endif
             </tr>
             @endforeach
           </tbody>

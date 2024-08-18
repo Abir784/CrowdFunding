@@ -35,7 +35,7 @@ class DonationController extends Controller
             'donation_amount' => 'required|numeric',
             ]);
         $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
-        if($campaign-> goal < ($request->donation_amount)){
+        if(($campaign-> goal - $campaign->goal_raised) < ($request->donation_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{
             //all existing code

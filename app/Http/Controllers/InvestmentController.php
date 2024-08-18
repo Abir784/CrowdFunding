@@ -30,7 +30,7 @@ class InvestmentController extends Controller
             'investment_amount' => 'required|numeric',
             ]);
         $campaign=Campaign::select('goal','goal_raised','dilution')->where('id',$request->campaign_id)->first();
-        if($campaign-> goal < ($request->investment_amount)){
+        if(($campaign-> goal - $campaign->goal_raised) < ($request->investment_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{
             //all existing code
