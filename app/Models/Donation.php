@@ -18,4 +18,7 @@ class Donation extends Model
         'zipcode',
         'payment_status',
     ];
+    public function campaign(){
+        return $this->belongsTo(Campaign::class,'campaign_id');
+    }
 }

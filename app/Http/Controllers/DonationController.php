@@ -19,6 +19,12 @@ class DonationController extends Controller
             'campaign_id'=>$id,
         ]);
     }
+    public function donation_table(){
+        $donations = Donation::where('user_id',Auth::id())->get();
+        return view("donation.donation_table",[
+            'donations'=>$donations,
+        ]);
+    }
 
     public function donation_form_post(Request $request){
         $request->validate([
@@ -28,7 +34,7 @@ class DonationController extends Controller
             'zipcode' => 'required',
             'donation_amount' => 'required|numeric',
             ]);
-        $campaign=Campaign::select('goal','goal_raised')->where('id',$request->campaign_id)->first();
+        $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
         if($campaign-> goal < ($request->donation_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{

@@ -13,8 +13,7 @@ Auth::routes();
 Route::get('/',[MainController::class,'index'])->name('index');
 Route::get("/profile_update",[profile_controller::class, "index"])->name('sadia');
 Route::get("/donation/{id}",[DonationController::class,"donation_form"])->name('donation.form');
-
-
+Route::get("/donation_details",[DonationController::class,"donation_table"])->name('show.donations');
 Route::get("/investment/{id}",[InvestmentController::class, "investment_form"])->name('investment.form');
 Route::post("/investment_post",[InvestmentController::class, "investment_form_post"])->name('investment.form.post');
 

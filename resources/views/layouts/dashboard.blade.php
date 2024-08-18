@@ -110,7 +110,7 @@
             </a>
             <ul class="sidebar-submenu">
               <li>
-                <a href="#"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Show My Donations</a>
+                <a href="{{ route('show.donations') }}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Show My Donations</a>
               </li>
             </ul>
         </li>
