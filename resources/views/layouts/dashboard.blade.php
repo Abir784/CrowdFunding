@@ -44,38 +44,19 @@
     </div>
     <div class="sidebar-menu-area">
       <ul class="sidebar-menu" id="sidebar-menu">
-        <li class="dropdown">
-          <a href="javascript:void(0)">
+        <li class="">
+          <a href="{{url('/home')}}">
             <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
             <span>Dashboard</span>
           </a>
-          <ul class="sidebar-submenu">
-            <li>
-              <a href="index.html"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> AI</a>
-            </li>
-            <li>
-              <a href="index-2.html"><i class="ri-circle-fill circle-icon text-warning-main w-auto"></i> CRM</a>
-            </li>
-            <li>
-              <a href="index-3.html"><i class="ri-circle-fill circle-icon text-info-main w-auto"></i> eCommerce</a>
-            </li>
-            <li>
-              <a href="index-4.html"><i class="ri-circle-fill circle-icon text-danger-main w-auto"></i> Cryptocurrency</a>
-            </li>
-            <li>
-              <a href="index-5.html"><i class="ri-circle-fill circle-icon text-success-main w-auto"></i> Investment</a>
-            </li>
-          </ul>
+
           <ul class="sidebar-menu" id="sidebar-menu">
-            <li class="dropdown">
-              <a href="javascript:void(0)">
+            <li class="">
+              <a href="{{ route('index')}}">
                 <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
-                <span>Index</span>
+                <span>Main Page</span>
               </a>
               <ul class="sidebar-submenu">
-                <li>
-                  <a href="{{ route('index')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Main Page</a>
-                </li>
             </li>
           </ul>
         </li>
@@ -88,8 +69,12 @@
           </a>
           <ul class="sidebar-submenu">
             <li>
-              <a href="{{ route('campaign.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Create a Campaign</a>
+              <a href="{{ route('campaign.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Create Campaigns</a>
             </li>
+              <li>
+                <a href="{{ route('campaign.table')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Show Campaigns</a>
+              </li>
+
           </ul>
         </li>
         <li class="dropdown">
