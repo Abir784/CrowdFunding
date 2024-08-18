@@ -367,12 +367,10 @@
                     <span>Raised: ${{$campaign->goal_raised}}</span>
                   </div>
                   @if ($campaign->type == 1)
-                  <a href="donation-page.html" class="btn two mt-3"><span>Invest Now</span></a>
+                  <a href="{{url('/investment/'.$campaign->id)}}" class="btn two mt-3"><span>Invest Now</span></a>
 
                   @elseif ($campaign->type == 2)
                   <a href="{{url('/donation/'.$campaign->id)}}" class="btn two mt-3"><span>Donate Now</span></a>
-                
-
                   @endif
 
                 </div>
@@ -820,7 +818,7 @@
             <h2>Recent Articles</h2>
           </div>
           <div class="row">
-            <div class="offset-xl-1 col-xl-10">
+            <div class="offset-xl-1 col-xl-10" id="sadia">
 
               @foreach ($articles as $article  )
               <div class="article">
@@ -845,7 +843,23 @@
           </div>
         </div>
       </section>
+<script>
+    $(document).ready(function(){
+    $('#getName').on("keyup", function(){
+        var getName = $(this).val();
 
+        $.ajax({
+        method:'POST',
+        url:'search.blade.php',
+        data:{name:getName},
+        success:function(response)
+        {
+            $("#sadia").html(response);
+        }
+        });
+    });
+    });
+</script>
 
 
 @endsection

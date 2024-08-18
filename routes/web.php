@@ -6,13 +6,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\InvestmentController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::get('/',[MainController::class,'index'])->name('index');
 Route::get("/profile_update",[profile_controller::class, "index"])->name('sadia');
 Route::get("/donation/{id}",[DonationController::class,"donation_form"])->name('donation.form');
+
 Route::get("/donation_details",[DonationController::class,"donation_table"])->name('show.donations');
+
+Route::get("/investment/{id}",[InvestmentController::class, "investment_form"])->name('investment.form');
+Route::post("/investment_post",[InvestmentController::class, "investment_form_post"])->name('investment.form.post');
+
 Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
 Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 Route::get('/campaign_details/{id}',[MainController::class,'campaign_page'])->name('campaign.details');

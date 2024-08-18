@@ -33,5 +33,13 @@ class MainController extends Controller
         ]);
 
     }
-    
+    public function search(Request $request){
+        $search = $request->input('search');
+        $results = Campaign::where('name', 'like', "%$search%")->get();
+        return view('campaign.cause-details',
+        [
+            'results' => $results
+        ]);
+    }
+
 }
