@@ -72,54 +72,17 @@
             <input type="text" name="zipcode" placeholder="Zipcode">
           </div>
 
-        <div class="pt-5">
-          <button type="submit" class="btn btn-primary-600">Save</button>
-        </div>
-    </form>
-    <form>
+          <div class="pt-5">
+              <button type="submit" class="btn btn-primary-600">Save</button>
+            </div>
+            {{-- @if (App\Models\Donation::where('user_id',Auth::id())->where('campaign_id',$campaign_id)->first())
+                <div class="pt-5">
+                    <a href="{{ route('paypal.payment',['amount'=>200]) }}" class="btn btn-success">Pay Now </a>
+                </div >
+            @endif --}}
 
-        </div>
-        <div class="enter-your-information-data payment">
-          <h5>Enter Your Payment Information</h5>
-          <label>Select Method</label>
-          <div class="radio-to mb-5">
-            <input type="radio" id="visa" name="fav_language" value="visa">
-            <label for="visa">
-            <img alt="visa" src="assets/img/visa.jpg">
-            </label>
-            <input type="radio" id="PayPal" name="fav_language" value="PayPal">
-            <label for="PayPal">
-            <img alt="img" src="assets/img/visa-2.jpg">
-            </label>
-          </div>
-          <label>Credit Card Number</label>
-          <input type="number" name="credit">
-          <label>Expiration Date</label>
-          <input type="number" name="name">
-          <label>Expiration Date</label>
-          <div class="d-flex">
-            <div class="time-number">
-            <select class="nice-select Advice">
-              <option>Month</option>
-              <option>State Topic 1</option>
-              <option>State Topic 2</option>
-              <option>State Topic 3</option>
-              <option>State Topic 4</option>
-            </select>
-            </div>
-            <div class="time-number ms-md-2">
-              <select class="nice-select Advice">
-                <option>Year</option>
-                <option>State Topic 1</option>
-                <option>State Topic 2</option>
-                <option>State Topic 3</option>
-                <option>State Topic 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
     </form>
+
   </div>
 </section>
 

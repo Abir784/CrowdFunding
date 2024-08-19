@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invest extends Model
 {
     use HasFactory;
+    protected $table = 'invest';
     protected $fillable = [
         'user_id',
         'campaign_id',

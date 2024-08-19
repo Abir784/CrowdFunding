@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <div class="heading mb-3">
-                        <h3>Login</h3>
+                    <div class="heading mb-4 mt-4">
+                        <p>Login</p>
+                        <h3>Login to get started</h3>
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="leave-comment">
                         @csrf
@@ -42,7 +42,7 @@
                             </div>
                         </div>
 
-                      
+
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">

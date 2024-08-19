@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\InvestmentController;
+use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -41,6 +42,11 @@ Route::get('/add_article',[DashboardController::class,'show_article_form'])->nam
 Route::post('/add_article_post',[DashboardController::class,'article_form_post'])->name('article.form.post');
 Route::post('/GetField',[DashboardController::class,'ajax']);
 
+
+Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
+Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 
 
 
