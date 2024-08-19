@@ -30,13 +30,12 @@ class InvestmentController extends Controller
             'investment_amount' => 'required|numeric',
             ]);
         $campaign=Campaign::select('goal','goal_raised','dilution')->where('id',$request->campaign_id)->first();
-        if($campaign-> goal < ($request->investment_amount)){
+        if(($campaign-> goal - $campaign->goal_raised) < ($request->investment_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{
             //all existing code
             $dilution=$campaign->dilution;
             $equity_percentage=($request->investment_amount * $dilution)/100;
-        // dd($equity_percentage);
             Invest::create([
                 'user_id'=>$request->user_id,
                 'campaign_id'=>$request->campaign_id,
@@ -50,13 +49,10 @@ class InvestmentController extends Controller
                 'created_at'=>Carbon::now(),
             ]);
 
-        Campaign::where('id',$request->campaign_id)->update(
-            [
-                'goal_raised'=> ($campaign -> goal_raised + (int)($request->investment_amount)),
-            ]
-            );
-        return back()->with('success','Investment Added Successfully');
-        }
+            return redirect(route('paypal.payment',['amount'=>$request->investment_amount,
+            'campaign_id'=>$request->campaign_id,
+        ]));
+    }
 
 }
 }

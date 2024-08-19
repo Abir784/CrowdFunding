@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Auth;
 use App\Models\Donation;
 use App\Models\Campaign;
+use DGvai\SSLCommerz\SSLCommerz;
 
 class DonationController extends Controller
 {
@@ -35,7 +36,7 @@ class DonationController extends Controller
             'donation_amount' => 'required|numeric',
             ]);
         $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
-        if($campaign-> goal < ($request->donation_amount)){
+        if(($campaign-> goal - $campaign->goal_raised) < ($request->donation_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{
             //all existing code
@@ -50,13 +51,11 @@ class DonationController extends Controller
                 'payment_status'=>0,
                 'created_at'=>Carbon::now(),
             ]);
+            return redirect(route('paypal.payment',['amount'=>$request->donation_amount,
+            'campaign_id'=>$request->campaign_id,
+        ]));
 
-        Campaign::where('id',$request->campaign_id)->update(
-            [
-                'goal_raised'=> ($campaign -> goal_raised + (int)($request->donation_amount)),
-            ]
-            );
-        return back()->with('success','Donation Added Successfully');
+        // return back()->with('success','Donation Added Successfully');
         }
 
 }

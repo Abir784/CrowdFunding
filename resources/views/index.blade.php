@@ -376,11 +376,12 @@
               </div>
 
             @endforeach
-
-
           </div>
         </div>
       </section>
+      <div class="button-gap m-5">
+        <a href="{{route('view.all.campaign')}}" class="btn mt-5"><span>View All Campaigns</span></a>
+      </div>
       <section class="donation-section gap" style="background-image: url(https://via.placeholder.com/1920x874);">
         <div class="container">
           <div class="row align-items-center">
@@ -842,23 +843,6 @@
           </div>
         </div>
       </section>
-<script>
-    $(document).ready(function(){
-    $('#getName').on("keyup", function(){
-        var getName = $(this).val();
-
-        $.ajax({
-        method:'POST',
-        url:'search.blade.php',
-        data:{name:getName},
-        success:function(response)
-        {
-            $("#sadia").html(response);
-        }
-        });
-    });
-    });
-</script>
 
 
 @endsection
