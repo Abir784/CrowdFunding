@@ -46,7 +46,7 @@
                     <div class="col-12">
                       <label class="form-label">Campaign Type</label>
                       <div class="input-group">
-                        <select class="form-select w-120-px" name="type">
+                        <select class="form-select w-120-px" name="type" id="type">
                           <option value="">--Select Type--</option>
                           <option value="1">Investment</option>
                           <option value="2">Donation</option>
@@ -86,6 +86,11 @@
                         <strong class="alert alert-danger">{{ $message }}</strong>
                     </span>
                     @enderror
+                    <div id="dilute" class="col-12">
+
+                    </div>
+
+
 
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary-600">Submit</button>
@@ -96,5 +101,33 @@
         </div>
     </div>
 </div>
+
+@endsection
+@section('footer_script')
+
+
+
+<script>
+    $('#type').change(function(){
+        var type = $(this).val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+     $.ajax({
+        type:'POST',
+        url:'/GetField',
+        data:{'type':type},
+        success:function(data){
+            $('#dilute').html(data);
+        }
+
+    });
+
+})
+
+</script>
 
 @endsection

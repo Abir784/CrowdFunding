@@ -23,7 +23,11 @@
 
             <h2>{{$campaign->title}}</h2>
             <h3>${{$campaign->goal}}<span> of ${{$campaign->goal_raised}} Raised</span></h3>
-            <a href="#" class="btn"><span>Donate Now</span></a>
+            @if ($campaign->type == 1)
+            <a href="{{url('/investment/'.$campaign->id)}}" class="btn mt-3"><span>Invest Now</span></a>
+            @elseif ($campaign->type == 2)
+            <a href="{{url('/donation/'.$campaign->id)}}" class="btn mt-3"><span>Donate Now</span></a>
+            @endif
             <div class="progressbar">
                 @php
                 $progress=($campaign->goal_raised/$campaign->goal)*100;

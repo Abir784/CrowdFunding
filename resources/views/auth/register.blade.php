@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+
                 <div class="card-body">
-                    <div class="heading mb-3">
+                    <div class="heading mb-4 mt-4">
                         <p>If You haven't already!</p>
                         <h3>Sign Up to Start</h3>
                     </div>

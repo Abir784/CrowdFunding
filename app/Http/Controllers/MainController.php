@@ -6,12 +6,14 @@ use App\Models\Article;
 use App\Models\Campaign;
 use App\Models\User;
 use Carbon\Carbon;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
     function index(){
-        $campaigns=Campaign::select('id','short_title','description','goal','goal_raised','poster_image_2')->get();
+        $campaigns=Campaign::select('id','short_title','description','goal','goal_raised','poster_image_2','type')->get();
         $articles=Article::select('id','short_title','description','poster_image_2','created_at','added_by')->get();
         return view('index',[
             'campaigns'=>$campaigns,
@@ -19,13 +21,12 @@ class MainController extends Controller
         ]);
     }
     function campaign_page($id){
-        $campaign=Campaign::select('title','description','goal','goal_raised','poster_image')->where('id',$id)->first();
+        $campaign=Campaign::select('title','description','goal','goal_raised','poster_image','type','id')->where('id',$id)->first();
          return view('campaign.cause-details',
          [
             'campaign'=>$campaign,
 
             ]);
-
 
     }
     function article_details($id){
@@ -34,6 +35,7 @@ class MainController extends Controller
         [
             'article'=>$article,
         ]);
+
     }
     function user_post(Request $request){
 
@@ -46,6 +48,19 @@ class MainController extends Controller
         ]);
         return redirect(route('home'));
     }
-   
+
+    function campaign_table(){
+        $campaigns=Campaign::where('added_by',Auth::id())->get();
+        return view('campaign.campaign_table',[
+            'campaigns'=>$campaigns,
+        ]);
+    }
+    function campaigns_all(){
+        $campaigns=Campaign::all();
+        return view('campaign.all_campaign',[
+            'campaigns'=>$campaigns,
+        ]);
+    }
+
 
 }

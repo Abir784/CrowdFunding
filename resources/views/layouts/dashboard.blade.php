@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{env('APP_NAME')}} - Dashbaord</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="assets/img/logo-icon.png">
     <!-- remix icon font css  -->
     <link rel="stylesheet" href="assets/assets/css/remixicon.css">
@@ -43,26 +44,19 @@
     </div>
     <div class="sidebar-menu-area">
       <ul class="sidebar-menu" id="sidebar-menu">
-        <li class="dropdown">
-          <a href="javascript:void(0)">
+        <li class="">
+          <a href="{{url('/home')}}">
             <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
             <span>Dashboard</span>
           </a>
-          <ul class="sidebar-submenu">
-            <li>
-              <a href="index.html"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> AI</a>
-            </li>
-            <li>
-              <a href="index-2.html"><i class="ri-circle-fill circle-icon text-warning-main w-auto"></i> CRM</a>
-            </li>
-            <li>
-              <a href="index-3.html"><i class="ri-circle-fill circle-icon text-info-main w-auto"></i> eCommerce</a>
-            </li>
-            <li>
-              <a href="index-4.html"><i class="ri-circle-fill circle-icon text-danger-main w-auto"></i> Cryptocurrency</a>
-            </li>
-            <li>
-              <a href="index-5.html"><i class="ri-circle-fill circle-icon text-success-main w-auto"></i> Investment</a>
+
+          <ul class="sidebar-menu" id="sidebar-menu">
+            <li class="">
+              <a href="{{ route('index')}}">
+                <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                <span>Main Page</span>
+              </a>
+              <ul class="sidebar-submenu">
             </li>
           </ul>
         </li>
@@ -75,8 +69,12 @@
           </a>
           <ul class="sidebar-submenu">
             <li>
-              <a href="{{ route('campaign.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Create a Campaign</a>
+              <a href="{{ route('campaign.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Create Campaigns</a>
             </li>
+              <li>
+                <a href="{{ route('campaign.table')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Show Campaigns</a>
+              </li>
+
           </ul>
         </li>
         <li class="dropdown">
@@ -86,10 +84,21 @@
             </a>
             <ul class="sidebar-submenu">
               <li>
-                <a href="{{ route('article.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> post a article</a>
+                <a href="{{ route('article.form')}}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Post an Article</a>
               </li>
             </ul>
           </li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">
+              <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+              <span>Donations</span>
+            </a>
+            <ul class="sidebar-submenu">
+              <li>
+                <a href="{{ route('show.donations') }}"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Show My Donations</a>
+              </li>
+            </ul>
+        </li>
 
         <li class="sidebar-menu-group-title">Application</li>
 
@@ -740,7 +749,7 @@
     <script src="assets/assets/js/app.js"></script>
 
   <script src="assets/assets/js/homeOneChart.js"></script>
-
+  @yield('footer_script')
 
   </body>
   </html>

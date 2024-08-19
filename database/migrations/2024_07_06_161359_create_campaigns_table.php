@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('added_by');
             $table->string('poster_image')->nullable();
             $table->string('poster_image_2')->nullable();
+            $table->integer('dilution')->nullable();
             $table->timestamps();
         });
     }
