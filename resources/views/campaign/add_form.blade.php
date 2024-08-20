@@ -10,10 +10,9 @@
                <div class="alert alert-success">
                  <strong>{{session('success')}}</strong>
                </div>
-
              @endif
+            
             <form action="{{ route('campaign.form.post')}}" method="POST" enctype="multipart/form-data">
-
             @csrf
                 <div class="row gy-3">
                     <div class="col-12">

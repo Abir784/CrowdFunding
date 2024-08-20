@@ -52,14 +52,35 @@
           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
           <label>Email Address</label>
           <input type="text" name="email" value="{{Auth::user()->email}}" placeholder="Enter Valid Email">
+          @error('email')
+                <span class="alert" role="alert">
+                    <strong class="alert alert-danger">{{ $message }}</strong>
+                </span>
+          @enderror
 
           <label>Full Name</label>
           <input type="text" name="name" value="{{Auth::user()->name}}" placeholder="Enter Full Name">
+          @error('name')
+                <span class="alert" role="alert">
+                    <strong class="alert alert-danger">{{ $message }}</strong>
+                </span>
+          @enderror
 
           <label>City</label>
           <input type="text" name="city">
+          @error('city')
+                <span class="alert" role="alert">
+                    <strong class="alert alert-danger">{{ $message }}</strong>
+                </span>
+          @enderror
+
           <label>Donation Amount</label>
           <input type="number" name="donation_amount">
+          @error('donation_amount')
+                <span class="alert" role="alert">
+                    <strong class="alert alert-danger">{{ $message }}</strong>
+                </span>
+          @enderror
           <label>State / Zipcode</label>
           <div class="d-flex">
             <select class="nice-select Advice">
@@ -70,6 +91,12 @@
               <option>State Topic 4</option>
             </select>
             <input type="text" name="zipcode" placeholder="Zipcode">
+            @error('zipcode')
+                <span class="alert" role="alert">
+                    <strong class="alert alert-danger">{{ $message }}</strong>
+                </span>
+            @enderror
+
           </div>
 
           <div class="pt-5">
