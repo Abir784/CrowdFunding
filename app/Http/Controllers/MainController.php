@@ -79,6 +79,35 @@ class MainController extends Controller
     }
       echo $search_results;
     }
+    public function filter(Request $request){
+        $filter = $request->input('filter');
+        echo $filter;
+        die();
+
+        if($filter==1){
+            $results = Campaign::orderBy('created_at','DESC')->get();
+        }elseif($filter==2){
+            $results = Campaign::orderBy('created_at','ASC')->get();
+
+        }elseif($filter==3){
+            $results = Campaign::where('type',1)->get();
+
+        }elseif($filter==4){
+            $results = Campaign::where('type',2)->get();
+        }
+
+        $search_results="";
+        foreach($results as $campaign){
+            $image_path=asset('uploads/campaign/Small_poster/'.$campaign->poster_image_2);
+            $link_1=route('campaign.details',$campaign->id);
+            $date=$campaign->created_at->format('M-d,Y');
+            $link_2=route('campaign.details',$campaign->id);
+            $title=$campaign->title;
+            $search_results .= "<div class='col-xl-4 col-md-6'><div class='news-article-one'><img alt='news article img' src='".$image_path."' width='400' height='280'><a href='".$link_1."'><h6>".$date."</h6></a><a href='".$link_2."'><h3>".$title."</h3></a></div></div>";
+    }
+      echo $search_results;
+    }
+
 
 
 }
