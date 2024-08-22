@@ -54,6 +54,8 @@ Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])-
 
 Route::post("/search_post",[MainController::class,'search'])->name('search');
 Route::post("/filter_post",[MainController::class,'filter'])->name('filter');
+Route::get('/article_table',[MainController::class,'article_table'])->name('article.table');
+
 
 
 
