@@ -8,6 +8,8 @@ use Auth;
 use App\Models\Donation;
 use App\Models\Campaign;
 use DGvai\SSLCommerz\SSLCommerz;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NotifyMe;
 
 class DonationController extends Controller
 {
@@ -28,7 +30,7 @@ class DonationController extends Controller
     }
 
     public function donation_form_post(Request $request){
-        $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
+        $campaign=Campaign::select('title','goal','goal_raised','added_by')->where('id',$request->campaign_id)->first();
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -54,11 +56,20 @@ class DonationController extends Controller
                 'payment_status'=>0,
                 'created_at'=>Carbon::now(),
             ]);
+
+            $details =[
+                'name'=>Auth::user()->name,
+                'amount'=>$request->donation_amount,
+                'title'=>$campaign->title,
+            ];
+            $email=$campaign->posted_by->email;
+
+            Notification::route('mail',$email)->notify(new NotifyMe($details));
+
             return redirect(route('paypal.payment',['amount'=>$request->donation_amount,
             'campaign_id'=>$request->campaign_id,
         ]));
 
-        // return back()->with('success','Donation Added Successfully');
         }
 
 }
