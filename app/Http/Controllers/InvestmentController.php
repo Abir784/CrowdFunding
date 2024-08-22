@@ -36,7 +36,7 @@ class InvestmentController extends Controller
             'zipcode' => 'required',
             'investment_amount' => 'required|numeric',
             ]);
-        $campaign=Campaign::select('goal','goal_raised','dilution')->where('id',$request->campaign_id)->first();
+        $campaign=Campaign::select('title','goal','goal_raised','dilution','added_by')->where('id',$request->campaign_id)->first();
         if(($campaign-> goal - $campaign->goal_raised) < ($request->investment_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{
@@ -55,6 +55,14 @@ class InvestmentController extends Controller
                 'payment_status'=>0,
                 'created_at'=>Carbon::now(),
             ]);
+            $investor_details =[
+                'name'=>Auth::user()->name,
+                'amount'=>$request->investment_amount,
+                'title'=>$campaign->title,
+            ];
+            $email=$campaign->posted_by->email;
+
+            Notification::route('mail',$email)->notify(new NotifyInvestors($investor_details));
 
             return redirect(route('paypal.payment',['amount'=>$request->investment_amount,
             'campaign_id'=>$request->campaign_id,
