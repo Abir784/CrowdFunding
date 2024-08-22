@@ -35,7 +35,7 @@
                 </select>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="filter_search">
             @forelse ($campaigns as $campaign )
 
             <div class="col-xl-4 col-md-6 ">
@@ -55,6 +55,29 @@
     </div>
  </section>
 
+@endsection
+@section('app_footer')
 
+<script>
+    $('#filter_search').change(function(){
+        var type = $(this).val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+     $.ajax({
+        type:'POST',
+        url:'/search_post',
+        data:{'type':type},
+        success:function(data){
+            $('#row').html(data);
+        }
+
+    });
+
+})
+
+</script>
 @endsection
