@@ -52,7 +52,7 @@ Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal
 Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
 Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 
-Route::post("/search_post",[MainController::class,'search']);
+Route::post("/search_post",[MainController::class,'search'])->name('search');
 
 
 

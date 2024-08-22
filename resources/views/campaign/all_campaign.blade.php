@@ -21,7 +21,7 @@
         <div class="row mb-4">
             <div class="col-md-8">
                 <form action="#" method="GET">
-                    <input type="text" name="search" class="form-control" placeholder="Search campaigns..." value="">
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Search campaigns..." value="">
                 </form>
             </div>
             <div class="col-md-4">
@@ -40,10 +40,10 @@
 
             <div class="col-xl-4 col-md-6 ">
                 <div class="news-article-one">
-                  <img alt="news article img" src="{{asset('uploads/campaign/Small_poster/'.$campaign->poster_image_2)}}">
+                  <img alt="news article img" width="400" height="280" src="{{asset('uploads/campaign/Small_poster/'.$campaign->poster_image_2)}}">
                   <a href="{{route('campaign.details',$campaign->id)}}"><h6>{{$campaign->created_at->format('M-d,Y')}}</h6></a>
 
-                  <a href="{{route('campaign.details',$campaign->id)}}"><h3>The perfect way to end your campaign</h3></a>
+                  <a href="{{route('campaign.details',$campaign->id)}}"><h3>{{$campaign->title}}</h3></a>
                 </div>
             </div>
             @empty
@@ -59,25 +59,24 @@
 @section('app_footer')
 
 <script>
-    $('#filter_search').change(function(){
-        var type = $(this).val();
+    $('#search').on('keyup',function(){
+        var search = $(this).val();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
      $.ajax({
         type:'POST',
-        url:'/search_post',
-        data:{'type':type},
+        url: "{{ route('search')}}",
+        data:{'search':search},
         success:function(data){
-            $('#row').html(data);
+            $('#filter_search').html(data);
         }
 
     });
 
-})
+});
 
 </script>
 @endsection
