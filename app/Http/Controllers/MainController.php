@@ -30,12 +30,18 @@ class MainController extends Controller
 
     }
     function article_details($id){
-        $article=Article::select('title','description','quote','poster_image_1','poster_image_2','created_at','added_by')->where('id',$id)->first();
+        $article=Article::select('title','short_title','description','quote','poster_image_1','poster_image_2','created_at','added_by')->where('id',$id)->first();
         return view('article.blog-details',
         [
             'article'=>$article,
         ]);
 
+    }
+    function article_table(){
+        $articles=Article::where('added_by',Auth::id())->get();
+        return view('article.article_table',[
+            'articles'=>$articles,
+        ]);
     }
 
     function user_post(Request $request){
