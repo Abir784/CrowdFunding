@@ -28,14 +28,17 @@ class DonationController extends Controller
     }
 
     public function donation_form_post(Request $request){
+        $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'city' => 'required',
             'zipcode' => 'required',
-            'donation_amount' => 'required|numeric',
+            'donation_amount' => 'required|numeric|max:'.($campaign-> goal - $campaign->goal_raised),
+            ],[
+                'donation_amount.max'=>'You can donate up to '.($campaign->goal - $campaign->goal_raised),
             ]);
-        $campaign=Campaign::select('title','goal','goal_raised')->where('id',$request->campaign_id)->first();
+
         if(($campaign-> goal - $campaign->goal_raised) < ($request->donation_amount)){
             return back()->with('error','Please Check The Required Goal');
         }else{

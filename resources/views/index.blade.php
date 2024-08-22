@@ -818,7 +818,7 @@
             <h2>Recent Articles</h2>
           </div>
           <div class="row">
-            <div class="offset-xl-1 col-xl-10">
+            <div class="offset-xl-1 col-xl-10" id="sadia">
 
               @foreach ($articles as $article  )
               <div class="article">
@@ -843,7 +843,6 @@
           </div>
         </div>
       </section>
-
 
 
 @endsection

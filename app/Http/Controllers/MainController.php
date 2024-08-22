@@ -37,6 +37,7 @@ class MainController extends Controller
         ]);
 
     }
+
     function user_post(Request $request){
 
         User::create([
@@ -49,6 +50,7 @@ class MainController extends Controller
         return redirect(route('home'));
     }
 
+
     function campaign_table(){
         $campaigns=Campaign::where('added_by',Auth::id())->get();
         return view('campaign.campaign_table',[
@@ -60,6 +62,15 @@ class MainController extends Controller
         return view('campaign.all_campaign',[
             'campaigns'=>$campaigns,
         ]);
+    }
+    public function search(Request $request){
+        $search = $request->input('search');
+        $results = Campaign::where('name', 'like', "%$search%")->get();
+
+
+       //$search_results = "<div class="col-xl-4 col-md-6 "><div class="news-article-one"><img alt="news article img" src="{{asset('uploads/campaign/Small_poster/'.".$campaign->poster_image_2.")}}"><a href="{{route('campaign.details',".$campaign->id.")}}"><h6>{{".$campaign->created_at->format('M-d,Y')."}}</h6></a><a href="{{route('campaign.details',".$campaign->id)."}}"><h3>The perfect way to end your campaign</h3></a></div></div>";
+
+        echo $search_results;
     }
 
 
