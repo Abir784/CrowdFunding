@@ -18,7 +18,6 @@
 
               <th scope="col">Campaign Title</th>
               <th scope="col">Invested Amount</th>
-              <th scope="col">Payment Status</th>
 
             </tr>
           </thead>
@@ -30,11 +29,6 @@
               <td>{{  $SL+1}}</td>
               <td>{{$investment->campaign->title}}</td>
               <td>{{$investment->investment_amount}}</td>
-              @if($investment->payment_status==0)
-                <td><span class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">unpaid</span></td>
-              @else
-                <td> <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">paid</span></td>
-              @endif
 
             </tr>
             @endforeach

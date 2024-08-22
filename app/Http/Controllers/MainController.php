@@ -80,9 +80,8 @@ class MainController extends Controller
       echo $search_results;
     }
     public function filter(Request $request){
-        $filter = $request->input('filter');
-        echo $filter;
-        die();
+        $filter = $request->input('type');
+
 
         if($filter==1){
             $results = Campaign::orderBy('created_at','DESC')->get();
