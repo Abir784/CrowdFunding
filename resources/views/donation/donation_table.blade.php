@@ -18,7 +18,6 @@
 
               <th scope="col">Campaign Title</th>
               <th scope="col">Donated Amount</th>
-              <th scope="col">Payment Status</th>
 
             </tr>
           </thead>
