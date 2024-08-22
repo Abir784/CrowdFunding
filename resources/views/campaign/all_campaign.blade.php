@@ -25,14 +25,14 @@
                 </form>
             </div>
             <div class="col-md-4">
-                <select class="form-control" name="filter">
+                <form method="POST" action=""><select class="form-control" name="filter" id ="filter">
                     <option value="">Filter by</option>
-                    <option value="latest" >Latest</option>
-                    <option value="oldest" >Oldest</option>
-                    <option value="popular" >Most Popular</option>
-                    <option value="investment" >Investment</option>
-                    <option value="investment" >Donation</option>
+                    <option value="1" >Latest</option>
+                    <option value="2" >Oldest</option>
+                    <option value="3" >Investment</option>
+                    <option value="4" >Donation</option>
                 </select>
+                </form>
             </div>
         </div>
         <div class="row" id="filter_search">
@@ -77,6 +77,28 @@
     });
 
 });
+
+</script>
+<script>
+    $('#filter').change(function(){
+        var type = $(this).val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+     $.ajax({
+        type:'POST',
+        url:"{{ route('filter')}}",
+        data:{'type':type},
+        success:function(data){
+            $('#filter_search').html(data);
+        }
+
+    });
+
+})
 
 </script>
 @endsection
