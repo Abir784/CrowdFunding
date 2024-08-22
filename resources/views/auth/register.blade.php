@@ -11,7 +11,7 @@
                         <p>If You haven't already!</p>
                         <h3>Sign Up to Start</h3>
                     </div>
-                    <form method="POST" action="{{ route('register') }}" class="leave-comment">
+                    <form method="POST" action="{{ route('user_post') }}" class="leave-comment">
                         @csrf
 
                         <div class="row mb-3">

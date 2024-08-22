@@ -8,6 +8,7 @@
 
   <link rel="icon" href="{{asset("assets/img/logo-icon.png")}}">
 
+
    <!-- CSS only -->
    <link rel="stylesheet" type="text/css" href="{{asset("assets/css/bootstrap.min.css")}}">
    <link rel="stylesheet" href="{{asset("assets/css/owl.carousel.min.css")}}">
@@ -458,6 +459,19 @@
 <!-- Back to top button end -->
 <!-- jQuery -->
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/668b7f2deaf3bd8d4d19520e/1i28ehik5';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 <!-- Bootstrap Js -->
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>

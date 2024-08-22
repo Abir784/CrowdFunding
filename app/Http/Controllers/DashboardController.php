@@ -36,6 +36,15 @@ function campaign_form_post(Request $request){
 
 
 
+    $id=Campaign::insertGetId([
+        'title'=>$request->title,
+        'description'=>$request->description,
+        'goal'=>$request->goal,
+        'short_title'=>$request->short_title,
+        'type'=>$request->type,
+        'added_by'=>Auth::user()->id,
+        'created_at'=>Carbon::now(),
+    ]);
 
     if(empty($request->dilution)){
         $request->validate([
@@ -81,7 +90,6 @@ function campaign_form_post(Request $request){
     }
 
 
-
     $extention_1=$request->poster_image->getClientOriginalExtension();
     $file_name_1=$id.".".$extention_1;
 
@@ -111,6 +119,8 @@ function article_form_post(Request $request){
         'poster_image_2'=>'required|mimes:png,jpg|dimensions:max_width:588,max_height:440',
         'short_title'=>'required|max:250',
         'quote'=>'required |max:150',
+        'name'=>'required ',
+
     ]);
 
     $id=Article::insertGetId([
@@ -148,6 +158,6 @@ function article_form_post(Request $request){
           </div>';
            echo $sent;
         }
-        
+
     }
 }
