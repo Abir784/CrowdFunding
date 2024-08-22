@@ -58,18 +58,13 @@
                             Change Password
                           </button>
                         </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link d-flex align-items-center px-24" id="pills-notification-tab" data-bs-toggle="pill" data-bs-target="#pills-notification" type="button" role="tab" aria-controls="pills-notification" aria-selected="false" tabindex="-1">
-                            Notification Settings
-                          </button>
-                        </li>
                     </ul>
 
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-edit-profile" role="tabpanel" aria-labelledby="pills-edit-profile-tab" tabindex="0">
                             <!-- Upload Image Start -->
                             <div class="mb-24 mt-16">
-                                
+
                             <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
                             @csrf
 
