@@ -486,4 +486,5 @@
   }, 2000);
 </script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+@yield('app_footer')
 </body>
