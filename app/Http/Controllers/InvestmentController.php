@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Auth;
 use App\Models\Invest;
 use App\Models\Campaign;
+use DGvai\SSLCommerz\SSLCommerz;
 
 
 class InvestmentController extends Controller
@@ -18,6 +19,12 @@ class InvestmentController extends Controller
     public function investment_form($id){
         return view('investment.investment_form',[
             'campaign_id'=>$id,
+        ]);
+    }
+    public function investment_table(){
+        $investment = Invest::where('user_id',Auth::id())->get();
+        return view("investment.investment_table",[
+            'investment'=>$investment,
         ]);
     }
 

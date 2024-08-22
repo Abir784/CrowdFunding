@@ -17,6 +17,7 @@ Route::get("/donation/{id}",[DonationController::class,"donation_form"])->name('
 Route::get("/donation_details",[DonationController::class,"donation_table"])->name('show.donations');
 Route::get("/investment/{id}",[InvestmentController::class, "investment_form"])->name('investment.form');
 Route::post("/investment_post",[InvestmentController::class, "investment_form_post"])->name('investment.form.post');
+Route::get("/investment_details",[InvestmentController::class,"investment_table"])->name('show.investments');
 
 
 

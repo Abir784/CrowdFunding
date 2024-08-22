@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invest extends Model
 {
     use HasFactory;
-    protected $table = 'invest';
+    protected $table = 'invests';
     protected $fillable = [
         'user_id',
         'campaign_id',
@@ -20,4 +20,7 @@ class Invest extends Model
         'zipcode',
         'payment_status',
     ];
-}
+
+public function campaign(){
+    return $this->belongsTo(Campaign::class,'campaign_id');
+}}
