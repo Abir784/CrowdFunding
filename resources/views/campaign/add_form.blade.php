@@ -11,8 +11,8 @@
                  <strong>{{session('success')}}</strong>
                </div>
              @endif
-            
-            <form action="{{ route('campaign.form.post')}}" method="POST" enctype="multipart/form-data">
+
+            <form action="{{ route('campaign.form.post')}}" method="POST" enctype="multipart/form-data" class="table table-striped-rows">
             @csrf
                 <div class="row gy-3">
                     <div class="col-12">

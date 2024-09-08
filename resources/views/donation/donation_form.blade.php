@@ -15,7 +15,7 @@
     </ol>
   </div>
 </section>
-<section class="gap">
+<section>
   <div class="container">
     @if (session('success'))
         <div class="alert alert-success">
@@ -30,24 +30,11 @@
         </div>
 
     @endif
-
     <form action="{{route('donation.form.post')}}" method="post" enctype="multipart/form-data">
     @csrf
-          <h5>Now choose how much.</h5>
-      <ul class="give-donation-levels-wrap">
-              <li><button type="button" class="give-donation-level-btn">$10</button>
-              </li>
-              <li><button type="button" class="give-donation-level-btn">$20</button>
-              </li>
-              <li><button type="button" class="give-donation-level-btn">$30</button>
-              </li>
-              <li><button type="button" class="give-donation-level-btn">$40</button>
-              </li>
-              <li><button type="button" class="give-btn give-btn-level-custom" value="custom">Custom Amount</button></li>
-      </ul>
+    <h5 align="center" class="mt-5">Enter your billing information</h5>
       <div class="enter-your-information pt-5">
-        <div class="enter-your-information-data">
-          <h5>Enter your billing information</h5>
+        <div class="col-lg-6">
           <input type="hidden" name="campaign_id" value="{{$campaign_id}}">
           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
           <label>Email Address</label>
@@ -73,40 +60,32 @@
                     <strong class="alert alert-danger">{{ $message }}</strong>
                 </span>
           @enderror
+          </div>
+          <div class="col-lg-6 m-2">
 
-          <label>Donation Amount</label>
-          <input type="number" name="donation_amount">
-          @error('donation_amount')
-                <span class="alert" role="alert">
-                    <strong class="alert alert-danger">{{ $message }}</strong>
-                </span>
-          @enderror
-          <label>State / Zipcode</label>
-          <div class="d-flex">
-            <select class="nice-select Advice">
-              <option>State</option>
-              <option>State Topic 1</option>
-              <option>State Topic 2</option>
-              <option>State Topic 3</option>
-              <option>State Topic 4</option>
-            </select>
-            <input type="text" name="zipcode" placeholder="Zipcode">
-            @error('zipcode')
-                <span class="alert" role="alert">
-                    <strong class="alert alert-danger">{{ $message }}</strong>
-                </span>
+            <label>Donation Amount</label>
+            <input type="number" name="donation_amount">
+            @error('donation_amount')
+                  <span class="alert" role="alert">
+                      <strong class="alert alert-danger">{{ $message }}</strong>
+                  </span>
             @enderror
+            <label>State / Zipcode</label>
+            <div class="d-flex">
+
+              <input type="text" name="zipcode" placeholder="Zipcode">
+              @error('zipcode')
+                  <span class="alert" role="alert">
+                      <strong class="alert alert-danger">{{ $message }}</strong>
+                  </span>
+              @enderror
 
           </div>
 
           <div class="pt-5">
               <button type="submit" class="btn btn-primary-600">Save</button>
-            </div>
-            {{-- @if (App\Models\Donation::where('user_id',Auth::id())->where('campaign_id',$campaign_id)->first())
-                <div class="pt-5">
-                    <a href="{{ route('paypal.payment',['amount'=>200]) }}" class="btn btn-success">Pay Now </a>
-                </div >
-            @endif --}}
+          </div>
+
 
     </form>
 
