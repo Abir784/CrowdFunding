@@ -114,61 +114,30 @@
           <div class="nav-bar">
             <nav>
               <ul>
-                <li><a href="JavaScript:void(0)">home</a>
+                <li><a href="{{url('/')}}">Home</a>
+                </li>
+                <li><a href="JavaScript:void(0)">Campaigns</a>
                 <ul>
-                    <li><a href="index.html">home page 1</a></li>
-                    <li><a href="index-2.html">home page 2</a></li>
-                    <li><a href="index-3.html">home page 3</a></li>
-                    <li><a href="index-4.html">home page 4</a></li>
+                    <li><a href="{{route('campaign.form')}}">Add Campaigns</a></li>
+                    <li><a href="{{route('view.all.campaign')}}">All Campaigns</a></li>
                 </ul>
                 </li>
-                <li><a href="JavaScript:void(0)">Causes</a>
+                <li><a href="JavaScript:void(0)">Article</a>
                 <ul>
-                    <li><a href="cause-details.html">cause details</a></li>
+                    <li><a href="{{route('article.form')}}">Post An Article</a></li>
+                    <li><a href="{{route('view.all.article')}}">All Articles</a></li>
                 </ul>
                 </li>
-                <li><a href="JavaScript:void(0)">Pages</a>
-                <ul>
-                    <li><a href="team-details.html">team details</a></li>
-                    <li><a href="event-details.html">event details</a></li>
-                    <li><a href="product-details.html">product-details</a></li>
-                    <li><a href="#">donation page</a></li>
-                    <li><a href="JavaScript:void(0)">photo-gallery</a>
-                      <ul>
-                          <li><a href="photo-gallery-1.html">photo gallery 1</a></li>
-                          <li><a href="photo-gallery-2.html">photo gallery 2</a></li>
-                          <li><a href="photo-gallery-3.html">photo gallery 3</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="404-error.html">404 error</a></li>
-                </ul>
-                </li>
-                <li><a href="JavaScript:void(0)">shop</a>
-                  <ul>
-                    <li><a href="our-shop.html">our shop</a></li>
-                    <li><a href="shop-cart.html">shop cart</a></li>
-                    <li><a href="cart-checkout.html">cart checkout</a></li>
-                  </ul>
-                </li>
-                <li><a href="JavaScript:void(0)">News</a>
-                  <ul>
-                    <li><a href="blog-details-1.html">blog details 1</a></li>
-                    <li><a href="blog-details-2.html">blog details 2</a></li>
-                  </ul>
-                </li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-
               </ul>
           </nav>
           <div class="extras">
             <div class="donation">
 
-                <a href="JavaScript:void(0)" class="pr-cart">
+                {{-- <a href="{{JavaScript:void(0)}}" class="pr-cart">
 
                   <svg id="Shoping-bags" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g><path d="m452 120h-60.946c-7.945-67.478-65.477-120-135.054-120s-127.109 52.522-135.054 120h-60.946c-11.046 0-20 8.954-20 20v352c0 11.046 8.954 20 20 20h392c11.046 0 20-8.954 20-20v-352c0-11.046-8.954-20-20-20zm-196-80c47.484 0 87.019 34.655 94.659 80h-189.318c7.64-45.345 47.175-80 94.659-80zm176 432h-352v-312h40v60c0 11.046 8.954 20 20 20s20-8.954 20-20v-60h192v60c0 11.046 8.954 20 20 20s20-8.954 20-20v-60h40z"></path></g></svg>
 
-                </a>
+                </a> --}}
 
                 <div class="cart-popup">
 
@@ -236,7 +205,7 @@
 
               </div>
 
-                <a class="theme-btn" href="#">Donate Now</a>
+                {{-- <a class="theme-btn" href="#">Donate Now</a> --}}
 
             </div>
             </div>

@@ -60,54 +60,6 @@
                 </i>
                   <h3>{{$article->quote}}</h3>
                 </div>
-
-                <div class="comment">
-                  <h3>02 Comments</h3>
-                  <ul>
-                    <li class="single-comment">
-                      <img alt="img" src="https://via.placeholder.com/120x120">
-                      <a href="#">reply</a>
-                      <div class="ps-lg-4">
-                        <div class="d-flex align-items-center">
-                          <h4>Valkor Smith</h4>
-                          <span>January 7, 2023 at 12:21 am </span>
-                          </div>
-                          <p>Integer sollicitudin ligula non enim sodales, non lacinia Sewid commodo
-                            are risus in euismod varius nullam feugiat ultrices.</p>
-                      </div>
-                    </li>
-                    <li class="single-comment children">
-                      <img alt="img" src="https://via.placeholder.com/120x120">
-                      <a href="#">reply</a>
-                      <div class="ps-lg-4">
-                        <div class="d-flex align-items-center">
-                          <h4>Willimes Dom</h4>
-                          <span>January 7, 2023 at 12:21 am </span>
-                          </div>
-                          <p>Integer sollicitudin ligula non enim sodales, non lacinia Sewid commodo
-                            are risus in euismod varius nullam feugiat ultrices.</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div class="comment">
-                  <h3>Leave a Comment</h3>
-                  <form class="leave-comment">
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <input type="text" name="name" placeholder="Full Name">
-                      </div>
-                      <div class="col-lg-6">
-                        <input type="text" name="Email" placeholder="Email Id">
-                      </div>
-                    </div>
-                    <input type="text" name="Subject" placeholder="Subject">
-                    <textarea placeholder="Your Message"></textarea>
-                    <button class="btn">
-                      <span>Post Comment</span>
-                    </button>
-                  </form>
-                </div>
             </div>
           </div>
         </div>

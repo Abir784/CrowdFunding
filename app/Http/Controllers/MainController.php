@@ -112,6 +112,12 @@ class MainController extends Controller
     }
       echo $search_results;
     }
+    function article(){
+        $articles=Article::all();
+        return view('article.view_all',[
+            'articles'=>$articles,
+        ]);
+    }
 
 
 

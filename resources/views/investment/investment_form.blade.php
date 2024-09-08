@@ -34,7 +34,7 @@
     <form action="{{route('investment.form.post')}}" method="post" enctype="multipart/form-data">
     @csrf
       <div class="enter-your-information pt-5">
-        <div class="enter-your-information-data">
+        <div class="enter-your-information-data bg-light">
           <h5>Enter your billing information</h5>
           <input type="hidden" name="campaign_id" value="{{$campaign_id}}">
           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
@@ -50,13 +50,6 @@
           <input type="number" name="investment_amount">
           <label>State / Zipcode</label>
           <div class="d-flex">
-            <select class="nice-select Advice">
-              <option>State</option>
-              <option>State Topic 1</option>
-              <option>State Topic 2</option>
-              <option>State Topic 3</option>
-              <option>State Topic 4</option>
-            </select>
             <input type="text" name="zipcode" placeholder="Zipcode">
           </div>
 

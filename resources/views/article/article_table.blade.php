@@ -4,7 +4,7 @@
 <body>
     <div class="card basic-data-table">
       <div class="card-body">
-        <table class="table bordered-table mb-0" id="dataTable" data-page-length='20'>
+        <table class="table table-success table-striped-rows" id="dataTable" data-page-length='20'>
           <thead>
             <tr>
               <th scope="col">

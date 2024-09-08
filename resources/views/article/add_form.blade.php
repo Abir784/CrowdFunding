@@ -12,11 +12,11 @@
                </div>
 
              @endif
-            <form action="{{route("article.form.post")}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route("article.form.post")}}" method="POST" enctype="multipart/form-data" >
 
             @csrf
                 <div class="row gy-3">
-                    <div class="col-12">
+                    <div class="col-6">
                       <label class="form-label">Title</label>
                       <input type="text"  class="form-control" placeholder="Enter The Title" name="title">
                     </div>
@@ -25,7 +25,7 @@
                             <strong class="alert alert-danger">{{ $message }}</strong>
                         </span>
                    @enderror
-                    <div class="col-12">
+                    <div class="col-6">
                       <label class="form-label">Short Title(shown in the main page)</label>
                       <input type="text" name="short_title" class="form-control" placeholder="Enter Short Title">
                     </div>
@@ -34,11 +34,11 @@
                             <strong class="alert alert-danger">{{ $message }}</strong>
                         </span>
                         @enderror
-                        <div class="col-12">
+                        <div class="col-6">
                             <label class="form-label">name</label>
                             <input type="text" name="name" class="form-control" placeholder="Enter quote">
                           </div>
-                    <div class="col-12">
+                    <div class="col-6">
                       <label class="form-label">Quote</label>
                       <input type="text" name="quote" class="form-control" placeholder="Enter quote">
                     </div>
@@ -47,17 +47,7 @@
                         <strong class="alert alert-danger">{{ $message }}</strong>
                     </span>
                     @enderror
-
-                    <div class="col-12">
-                      <label class="form-label">Description</label>
-                      <textarea name="description" class="form-control" rows="4" cols="50" placeholder="Enter a description..."></textarea>
-                    </div>
-                    @error('description')
-                    <span class="alert" role="alert">
-                        <strong class="alert alert-danger">{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    <div class="col-12">
+                    <div class="col-6">
                       <label class="form-label">Large Poster Image(shown in the details page)</label>
                       <input class="form-control" type="file" name="poster_image_1">
                     </div>
@@ -67,7 +57,7 @@
                     </span>
                     @enderror
 
-                    <div class="col-12">
+                    <div class="col-6">
                       <label class="form-label">Short Poster Image(Shown in the main page)</label>
                       <input class="form-control" type="file" name="poster_image_2">
                     </div>
@@ -76,6 +66,15 @@
                         <strong class="alert alert-danger">{{ $message }}</strong>
                     </span>
                     @enderror
+                    <div class="col-12">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="4" cols="50" placeholder="Enter a description..."></textarea>
+                      </div>
+                      @error('description')
+                      <span class="alert" role="alert">
+                          <strong class="alert alert-danger">{{ $message }}</strong>
+                      </span>
+                      @enderror
 
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary-600">Submit</button>
